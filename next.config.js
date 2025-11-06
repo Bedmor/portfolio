@@ -5,6 +5,15 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+    images: {
+        remotePatterns: [
+            { hostname: "upload.wikimedia.org" },
+            { hostname: "cdn-icons-png.flaticon.com" },
+            { hostname: "www.linkedin.com" },
+            { hostname: "images.icon-icons.com" }
+        ]
+    }
+};
 
 export default config;
