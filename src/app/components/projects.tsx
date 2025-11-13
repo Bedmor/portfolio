@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import { useState, useEffect } from "react";
+import { TableProperties } from "lucide-react";
 import {
   MorphingPopover,
   MorphingPopoverContent,
@@ -68,19 +68,11 @@ export default function Projects() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="relative h-20 w-20 cursor-pointer overflow-hidden rounded-2xl bg-transparent transition hover:scale-110 sm:h-24 sm:w-24">
-            <div className="flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
-              <Image
-                className="object-cover"
-                src="/projects.png"
-                alt="Projects Icon"
-                height={96}
-                width={96}
-              />
-            </div>
+          <div className="flex h-20 w-20 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-white transition hover:scale-110 sm:h-24 sm:w-24">
+            <TableProperties size={64} />
           </div>
         </MorphingPopoverTrigger>
-        <h1 className="mt-2 text-center text-xs font-semibold text-gray-200 sm:text-sm">
+        <h1 className="mt-3 text-center text-xs font-semibold text-gray-200 sm:text-sm">
           Projects
         </h1>
       </div>
@@ -91,7 +83,7 @@ export default function Projects() {
           className="fixed top-4 left-4 z-50 rounded-full bg-white p-2 text-2xl font-bold text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900"
           aria-label="Close"
         >
-          
+          &larr;
         </button>
         <div className="w-full bg-gray-100 p-4 sm:p-6 md:p-8">
           <div className="mx-auto max-w-6xl">
@@ -100,8 +92,32 @@ export default function Projects() {
             </h2>
 
             {loading && (
-              <div className="flex items-center justify-center py-12">
-                <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-blue-500"></div>
+              <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div
+                    key={i}
+                    className="overflow-hidden rounded-lg bg-white shadow-md"
+                  >
+                    {/* Image skeleton */}
+                    <div className="h-48 w-full animate-pulse bg-gray-200" />
+
+                    {/* Content skeleton */}
+                    <div className="space-y-3 p-6">
+                      {/* Title skeleton */}
+                      <div className="h-6 w-3/4 animate-pulse rounded bg-gray-200" />
+
+                      {/* Excerpt skeleton */}
+                      <div className="space-y-2">
+                        <div className="h-4 w-full animate-pulse rounded bg-gray-200" />
+                        <div className="h-4 w-5/6 animate-pulse rounded bg-gray-200" />
+                        <div className="h-4 w-4/6 animate-pulse rounded bg-gray-200" />
+                      </div>
+
+                      {/* Date skeleton */}
+                      <div className="h-3 w-1/3 animate-pulse rounded bg-gray-200" />
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
 
@@ -169,7 +185,7 @@ export default function Projects() {
                       <div className="flex items-center gap-4 text-sm text-gray-500">
                         {repo.language && (
                           <span className="flex items-center gap-1">
-                            <span className="h-3 w-3 rounded-full bg-blue-500"></span>
+                            <span className="h-3 w-3 rounded-full bg-purple-800"></span>
                             {repo.language}
                           </span>
                         )}

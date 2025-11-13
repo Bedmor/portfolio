@@ -7,15 +7,12 @@ export default function Mail() {
         href="mailto:besimozdemir33@gmail.com"
         className="relative h-20 w-20 overflow-hidden rounded-lg bg-white p-4 transition hover:scale-110 sm:h-24 sm:w-24 sm:p-6"
       >
-        <Image
-          src="https://images.icon-icons.com/2631/PNG/512/gmail_new_logo_icon_159149.png"
-          alt="Mail Icon"
-          height={96}
-width={96}
-className="object-cover"
-        />
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>Gmail</title>
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+        </svg>
       </Link>
-      <h1 className="mt-2 text-xs font-semibold text-gray-200 sm:text-sm">
+      <h1 className="mt-3 text-xs font-semibold text-gray-200 sm:text-sm">
         Email
       </h1>
     </div>

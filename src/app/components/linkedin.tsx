@@ -15,11 +15,11 @@ export default function LinkedIn() {
             alt="LinkedIn Icon"
 height={96}
             width={96}
-            className="object-cover"
+            className="object-cover black-and-white"
           />
         </div>
       </Link>
-      <h1 className="mt-2 text-xs font-semibold text-gray-200 sm:text-sm">
+      <h1 className="mt-3 text-xs font-semibold text-gray-200 sm:text-sm">
         LinkedIn
       </h1>
     </div>
