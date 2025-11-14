@@ -9,17 +9,17 @@ export default function LinkedIn() {
         href="https://www.linkedin.com/in/besim-özdemir-0848b1241"
         className="relative h-20 w-20 overflow-hidden rounded-lg bg-white transition hover:scale-110 sm:h-24 sm:w-24"
       >
-        <div className="p-4 w-20 h-20 sm:w-24 sm:h-24">
+        <div className="h-20 w-20 p-4 sm:h-24 sm:w-24">
           <Image
             src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
             alt="LinkedIn Icon"
-height={96}
+            height={96}
             width={96}
-            className="object-cover black-and-white"
+            className="black-and-white object-cover"
           />
         </div>
       </Link>
-      <h1 className="mt-3 text-xs font-semibold text-gray-200 sm:text-sm">
+      <h1 className="mt-3 text-xs font-semibold text-gray-900 sm:text-sm">
         LinkedIn
       </h1>
     </div>
