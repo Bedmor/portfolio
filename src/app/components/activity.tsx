@@ -1,5 +1,4 @@
 import { Octokit } from "octokit";
-import CurrentlyWorkingOn from "./currently-working-on";
 import LatestTweet from "./latest-tweet";
 import Image from "next/image";
 const octokit = new Octokit({
@@ -50,26 +49,30 @@ export default async function ActivityFeed() {
 
   return (
     <div className="col-span-3 flex w-full flex-col items-center justify-center gap-1 p-4">
-      <div className="flex flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
-        <Image
-          src={latestPush.actor.avatar_url}
-          alt="User Avatar"
-          width={50}
-          height={50}
-          className="shrink-0 rounded-full"
-        />
-        <h3 className="shrink-0 text-sm font-bold">Latest Commit</h3>
-        <p className="min-w-0 truncate text-sm text-gray-600">
-          {commitData.commit.message}
-        </p>
-        <p className="shrink-0 text-xs text-gray-400">{latestPush.repo.name}</p>
-        <p className="shrink-0 text-xs text-gray-400">
-          {payload.ref.replace("refs/heads/", "")}
-        </p>
-        <p className="shrink-0 text-xs whitespace-nowrap text-gray-400">
-          {new Date(latestPush.created_at).toLocaleDateString()}
-        </p>
-      </div>
+      {latestPush && commitData && payload && latestPush.created_at && (
+        <div className="flex flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
+          <Image
+            src={latestPush.actor.avatar_url}
+            alt="User Avatar"
+            width={50}
+            height={50}
+            className="shrink-0 rounded-full"
+          />
+          <h3 className="shrink-0 text-sm font-bold">Latest Commit</h3>
+          <p className="min-w-0 truncate text-sm text-gray-600">
+            {commitData.commit.message}
+          </p>
+          <p className="shrink-0 text-xs text-gray-400">
+            {latestPush.repo.name}
+          </p>
+          <p className="shrink-0 text-xs text-gray-400">
+            {payload.ref.replace("refs/heads/", "")}
+          </p>
+          <p className="shrink-0 text-xs whitespace-nowrap text-gray-400">
+            {new Date(latestPush.created_at).toLocaleDateString()}
+          </p>
+        </div>
+      )}
       <LatestTweet />
     </div>
   );

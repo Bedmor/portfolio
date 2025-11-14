@@ -75,13 +75,12 @@ export default function About() {
                     Frontend
                   </h3>
                   <div className="space-y-4">
-                    <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/50">
+                    <div className="group relative overflow-hidden rounded-xl bg-linear-to-r from-blue-500 via-cyan-400 to-blue-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/50">
                       <div className="relative flex items-center justify-between rounded-[10px] bg-white px-6 py-4">
                         <div className="flex flex-col">
                           <p className="text-xl font-bold text-gray-900">
                             React & Next.js
                           </p>
-                          
                         </div>
                         <div className="flex items-center gap-2 opacity-80 transition-opacity group-hover:opacity-100">
                           <svg
@@ -106,13 +105,12 @@ export default function About() {
                       </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50">
+                    <div className="group relative overflow-hidden rounded-xl bg-linear-to-r from-purple-500 via-pink-500 to-purple-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50">
                       <div className="relative flex items-center justify-between rounded-[10px] bg-white px-6 py-4">
                         <div className="flex flex-col">
                           <p className="text-xl font-bold text-gray-900">
                             TypeScript
                           </p>
-                          
                         </div>
                         <svg
                           className="h-10 w-10 fill-[#3178C6] opacity-80 transition-opacity group-hover:opacity-100"
@@ -126,7 +124,7 @@ export default function About() {
                       </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-teal-500 via-green-400 to-teal-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50">
+                    <div className="group relative overflow-hidden rounded-xl bg-linear-to-r from-teal-500 via-green-400 to-teal-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/50">
                       <div className="relative flex items-center justify-between rounded-[10px] bg-white px-6 py-4">
                         <div className="flex flex-col">
                           <p className="text-xl font-bold text-gray-900">
@@ -154,13 +152,12 @@ export default function About() {
                     Backend
                   </h3>
                   <div className="space-y-4">
-                    <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50">
+                    <div className="group relative overflow-hidden rounded-xl bg-linear-to-r from-green-500 via-emerald-400 to-green-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50">
                       <div className="relative flex items-center justify-between rounded-[10px] bg-white px-6 py-4">
                         <div className="flex flex-col">
                           <p className="text-xl font-bold text-gray-900">
                             Node.js & Express
                           </p>
-                          
                         </div>
                         <svg
                           className="h-10 w-10 fill-[#339933] opacity-80 transition-opacity group-hover:opacity-100"
@@ -174,13 +171,12 @@ export default function About() {
                       </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-indigo-500 via-blue-400 to-indigo-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/50">
+                    <div className="group relative overflow-hidden rounded-xl bg-linear-to-r from-indigo-500 via-blue-400 to-indigo-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/50">
                       <div className="relative flex items-center justify-between rounded-[10px] bg-white px-6 py-4">
                         <div className="flex flex-col">
                           <p className="text-xl font-bold text-gray-900">
                             Prisma & SQL
                           </p>
-                          
                         </div>
                         <svg
                           className="h-10 w-10 fill-[#2D3748] opacity-80 transition-opacity group-hover:opacity-100"
@@ -194,15 +190,14 @@ export default function About() {
                       </div>
                     </div>
 
-                    <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-orange-500 via-red-400 to-orange-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50">
+                    <div className="group relative overflow-hidden rounded-xl bg-linear-to-r from-orange-500 via-red-400 to-orange-500 p-0.5 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/50">
                       <div className="relative flex items-center justify-between rounded-[10px] bg-white px-6 py-4">
                         <div className="flex flex-col">
                           <p className="text-xl font-bold text-gray-900">
                             REST APIs
                           </p>
-                          
                         </div>
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-400 to-red-500 text-xs font-bold text-white opacity-80 transition-opacity group-hover:opacity-100">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-br from-orange-400 to-red-500 text-xs font-bold text-white opacity-80 transition-opacity group-hover:opacity-100">
                           API
                         </div>
                       </div>
@@ -232,7 +227,7 @@ export default function About() {
                   ].map((tech) => (
                     <span
                       key={tech.name}
-                      className={`group relative overflow-hidden rounded-full bg-gradient-to-r ${tech.color} px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl`}
+                      className={`group relative overflow-hidden rounded-full bg-linear-to-r ${tech.color} px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl`}
                     >
                       {tech.name}
                     </span>
@@ -242,7 +237,7 @@ export default function About() {
             </div>
 
             {/* What I Do */}
-            <div className="rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 p-6 shadow-lg sm:p-8">
+            <div className="rounded-xl bg-linear-to-br from-purple-50 to-pink-50 p-6 shadow-lg sm:p-8">
               <div className="mb-6 flex items-center gap-3">
                 <span className="text-3xl">💼</span>
                 <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -280,8 +275,6 @@ export default function About() {
                 </div>
               </div>
             </div>
-
-            
           </div>
         </div>
       </MorphingPopoverContent>

@@ -8,7 +8,6 @@ import Clock from "./components/clock";
 import Blog from "./components/blog";
 import Image from "next/image";
 import ActivityFeed from "./components/activity";
-import CurrentlyWorkingOn from "./components/currently-working-on";
 export default function HomePage() {
   return (
     <main className="flex min-h-screen w-full flex-col bg-transparent">

@@ -6,6 +6,7 @@ import {
   MorphingPopoverTrigger,
 } from "../../../components/motion-primitives/morphing-popover";
 import { NotebookPen } from "lucide-react";
+import Image from "next/image";
 interface BlogPost {
   id: string;
   title: string;
@@ -132,9 +133,11 @@ export default function Blog() {
                     >
                       {post.coverImage && (
                         <div className="h-48 w-full overflow-hidden bg-gray-200">
-                          <img
+                          <Image
                             src={post.coverImage}
                             alt={post.title}
+                            width={400}
+                            height={192}
                             className="h-full w-full object-cover transition-transform group-hover:scale-110"
                           />
                         </div>
@@ -175,9 +178,11 @@ export default function Blog() {
               <article className="rounded-lg bg-white p-8 shadow-md">
                 {selectedPost.coverImage && (
                   <div className="-mx-8 -mt-8 mb-6 h-64 w-[calc(100%+4rem)] overflow-hidden bg-gray-200">
-                    <img
+                    <Image
                       src={selectedPost.coverImage}
                       alt={selectedPost.title}
+                      width={800}
+                      height={256}
                       className="h-full w-full object-cover"
                     />
                   </div>

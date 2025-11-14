@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 export default function Mail() {
   return (
     <div className="relative flex flex-col items-center justify-center">
