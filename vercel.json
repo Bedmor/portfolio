@@ -1,8 +1,5 @@
 {
   "buildCommand": "prisma generate && next build",
-  "installCommand": "npm install --include=optional",
-  "framework": "nextjs",
-  "env": {
-    "SKIP_ENV_VALIDATION": "1"
-  }
+  "installCommand": "npm ci --ignore-scripts && npm run postinstall",
+  "framework": "nextjs"
 }
