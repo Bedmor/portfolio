@@ -11,7 +11,9 @@ const config = {
             { hostname: "upload.wikimedia.org" },
             { hostname: "cdn-icons-png.flaticon.com" },
             { hostname: "www.linkedin.com" },
-            { hostname: "images.icon-icons.com" }
+            { hostname: "images.icon-icons.com" },
+            { hostname: "avatars.githubusercontent.com" },
+            { hostname: "pbs.twimg.com" }
         ]
     }
 };

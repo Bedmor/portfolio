@@ -1,23 +1,17 @@
 import { Octokit } from "octokit";
+import CurrentlyWorkingOn from "./currently-working-on";
+import LatestTweet from "./latest-tweet";
 import Image from "next/image";
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-interface GitHubCommit {
-  message: string;
-  sha: string;
-}
-
-interface GitHubEvent {
-  type: string;
-  repo: {
-    name: string;
-  };
-  created_at: string;
-  payload: {
-    commits?: GitHubCommit[];
-  };
+interface PushPayload {
+  repository_id: number;
+  push_id: number;
+  ref: string;
+  head: string;
+  before: string;
 }
 
 export default async function ActivityFeed() {
@@ -28,36 +22,55 @@ export default async function ActivityFeed() {
   });
 
   // Filter for push events (commits)
-  const pushEvents = (events.data as GitHubEvent[]).filter(
-    (event) => event.type === "PushEvent",
-  );
+  const pushEvents = events.data.filter((event) => event.type === "PushEvent");
 
-  // Get the most recent commit
+  // Get the most recent push event
   const latestPush = pushEvents[0];
-  const latestCommit = latestPush?.payload?.commits?.[0];
+
+  let commitData = null;
+  if (latestPush) {
+    const payload = latestPush.payload as PushPayload;
+    // Extract owner and repo from repo name (e.g., "Bedmor/portfolio")
+    const [owner, repo] = latestPush.repo.name.split("/");
+
+    if (owner && repo) {
+      // Fetch the actual commit details using the SHA
+      const commitResponse = await octokit.request(
+        "GET /repos/{owner}/{repo}/commits/{ref}",
+        {
+          owner,
+          repo,
+          ref: payload.head,
+        },
+      );
+      commitData = commitResponse.data;
+    }
+  }
+  const payload = latestPush ? (latestPush.payload as PushPayload) : null;
 
   return (
-    <div className="flex flex-col gap-4 p-4">
-      {latestCommit && latestPush ? (
-        <div className="rounded-lg bg-white p-4 shadow">
-            <Image
-            src={events.data[0].actor.avatar_url}
-            alt="User Avatar"
-            width={50}
-            height={50}
-          />
-          <h3 className="font-bold">Latest Commit</h3>
-          <p className="text-sm text-gray-600">{latestCommit.message}</p>
-          <p className="text-xs text-gray-400">
-            Repository: {latestPush.repo.name}
-          </p>
-          <p className="text-xs text-gray-400">
-            {new Date(latestPush.created_at).toLocaleDateString()}
-          </p>
-        </div>
-      ) : (
-        <p>No recent commits found</p>
-      )}
+    <div className="col-span-3 flex w-full flex-col items-center justify-center gap-1 p-4">
+      <div className="flex flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
+        <Image
+          src={latestPush.actor.avatar_url}
+          alt="User Avatar"
+          width={50}
+          height={50}
+          className="shrink-0 rounded-full"
+        />
+        <h3 className="shrink-0 text-sm font-bold">Latest Commit</h3>
+        <p className="min-w-0 truncate text-sm text-gray-600">
+          {commitData.commit.message}
+        </p>
+        <p className="shrink-0 text-xs text-gray-400">{latestPush.repo.name}</p>
+        <p className="shrink-0 text-xs text-gray-400">
+          {payload.ref.replace("refs/heads/", "")}
+        </p>
+        <p className="shrink-0 text-xs whitespace-nowrap text-gray-400">
+          {new Date(latestPush.created_at).toLocaleDateString()}
+        </p>
+      </div>
+      <LatestTweet />
     </div>
   );
 }

@@ -1,0 +1,126 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Heart, MessageCircle, Repeat2 } from "lucide-react";
+interface Tweet {
+  id: string;
+  text: string;
+  created_at: string;
+  author: {
+    name: string;
+    username: string;
+    profile_image_url: string;
+  };
+  public_metrics?: {
+    like_count: number;
+    retweet_count: number;
+    reply_count: number;
+  };
+}
+
+export default function LatestTweet() {
+  const [tweet, setTweet] = useState<Tweet | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchLatestTweet() {
+      try {
+        const response = await fetch("/api/twitter/latest");
+        if (!response.ok) {
+          throw new Error("Failed to fetch tweet");
+        }
+        const data = (await response.json()) as Tweet;
+        setTweet(data);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    void fetchLatestTweet();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex animate-pulse flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
+        <div className="h-12 w-12 rounded-full bg-gray-200"></div>
+        <div className="flex-1 space-y-2">
+          <div className="h-4 w-3/4 rounded bg-gray-200"></div>
+          <div className="h-3 w-1/2 rounded bg-gray-200"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !tweet) {
+    return (
+      <div className="flex flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
+        <p className="text-sm text-gray-500">
+          Unable to load latest tweet. Follow me{" "}
+          <a
+            href="https://twitter.com/acabesim"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            @acabesim
+          </a>
+        </p>
+      </div>
+    );
+  }
+
+  const tweetUrl = `https://twitter.com/${tweet.author.username}/status/${tweet.id}`;
+  const formattedDate = new Date(tweet.created_at).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+
+  return (
+    <a
+      href={tweetUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex w-full flex-row items-start gap-3 rounded-lg bg-white p-4 shadow transition-shadow hover:shadow-md"
+    >
+      <Image
+        src={tweet.author.profile_image_url}
+        alt={`${tweet.author.name} avatar`}
+        width={48}
+        height={48}
+        className="shrink-0 rounded-full"
+      />
+      <div className="min-w-0 flex-1">
+        <div className="mb-1 flex items-center gap-2">
+          <h3 className="truncate text-sm font-bold">{tweet.author.name}</h3>
+          <span className="shrink-0 text-xs text-gray-500">
+            @{tweet.author.username}
+          </span>
+          <span className="shrink-0 text-xs text-gray-400">
+            · {formattedDate}
+          </span>
+        </div>
+        <p className="line-clamp-3 text-sm text-gray-700">{tweet.text}</p>
+        {tweet.public_metrics && (
+          <div className="mt-2 flex gap-4 text-xs text-gray-500">
+            <span className="flex items-center gap-1">
+              <MessageCircle className="h-3 w-3" />
+              {tweet.public_metrics.reply_count}
+            </span>
+            <span className="flex items-center gap-1">
+              <Repeat2 className="h-3 w-3" />
+              {tweet.public_metrics.retweet_count}
+            </span>
+            <span className="flex items-center gap-1">
+              <Heart className="h-3 w-3" />
+              {tweet.public_metrics.like_count}
+            </span>
+          </div>
+        )}
+      </div>
+    </a>
+  );
+}

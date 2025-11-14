@@ -12,7 +12,12 @@ import CurrentlyWorkingOn from "./components/currently-working-on";
 export default function HomePage() {
   return (
     <main className="flex min-h-screen w-full flex-col bg-transparent">
-      <Image src="/bg.jpg" alt="Background" fill className="absolute -z-10 object-cover" />
+      <Image
+        src="/bg.jpg"
+        alt="Background"
+        fill
+        className="absolute -z-10 object-cover"
+      />
       <div className="header flex w-screen flex-row border-b-2 backdrop-blur-lg">
         <Clock />
         <div className="lgw-9/12 w-5/12"> </div>
@@ -26,7 +31,6 @@ export default function HomePage() {
         <Twitter />
         <Mail />
         <ActivityFeed />
-        <CurrentlyWorkingOn />
       </div>
       <div className="footer mt-auto flex h-24 w-screen items-center justify-center border-t-2 backdrop-blur-lg">
         <p className="p-4 text-center text-gray-200">Made with ❤️ by Bedmor</p>
