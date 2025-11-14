@@ -101,8 +101,8 @@ export default function AdminPage() {
       title: post.title,
       slug: post.slug,
       content: post.content,
-      excerpt: post.excerpt || "",
-      coverImage: post.coverImage || "",
+      excerpt: post.excerpt ?? "",
+      coverImage: post.coverImage ?? "",
       published: post.published,
     });
     window.scrollTo({ top: 0, behavior: "smooth" });
