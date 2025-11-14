@@ -43,7 +43,14 @@ export async function PATCH(
     }
 
     const { id } = await params;
-    const body = await request.json();
+    const body = (await request.json()) as {
+      title?: string;
+      slug?: string;
+      content?: string;
+      excerpt?: string | null;
+      coverImage?: string | null;
+      published?: boolean;
+    };
     const { title, slug, content, excerpt, coverImage, published } = body;
 
     // Check if post exists

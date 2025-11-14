@@ -34,7 +34,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const body = await request.json();
+    const body = (await request.json()) as {
+      title?: string;
+      slug?: string;
+      content?: string;
+      excerpt?: string;
+      coverImage?: string;
+      published?: boolean;
+    };
     const { title, slug, content, excerpt, coverImage, published } = body;
 
     // Validate required fields
@@ -62,9 +69,9 @@ export async function POST(request: Request) {
         title,
         slug,
         content,
-        excerpt: excerpt || null,
-        coverImage: coverImage || null,
-        published: published || false,
+        excerpt: excerpt ?? null,
+        coverImage: coverImage ?? null,
+        published: published ?? false,
       },
     });
 
