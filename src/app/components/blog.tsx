@@ -62,7 +62,7 @@ export default function Blog() {
             <NotebookPen size={48} />
           </div>
         </MorphingPopoverTrigger>
-        <h1 className="mt-3 text-xs font-semibold text-white sm:text-sm">
+        <h1 className="mt-3 w-16 h-16 text-xs font-semibold text-white sm:text-sm">
           Blog
         </h1>
       </div>

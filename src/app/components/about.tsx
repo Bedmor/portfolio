@@ -26,7 +26,7 @@ export default function About() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="fixed top-10 left-4 z-50 rounded-full bg-white p-2 text-xl text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
+          className="mt-3 w-16 h-16 z-50 rounded-full bg-white p-2 text-xl text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
           aria-label="Close"
         >
           &larr;
