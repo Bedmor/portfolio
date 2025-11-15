@@ -72,7 +72,7 @@ export default function Projects() {
             <TableProperties size={64} />
           </div>
         </MorphingPopoverTrigger>
-        <h1 className="mt-3 text-center text-xs font-semibold text-gray-900 sm:text-sm">
+        <h1 className="mt-3 text-center text-xs font-semibold text-white sm:text-sm">
           Projects
         </h1>
       </div>

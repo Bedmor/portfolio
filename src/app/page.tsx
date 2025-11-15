@@ -22,7 +22,7 @@ export default function HomePage() {
         <Clock />
         <div className="w-5/12 lg:w-9/12"> </div>
       </div>
-      <div className="app-grid mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 px-4 py-8 sm:grid-cols-2 sm:gap-6 sm:px-6 sm:py-12 md:grid-cols-3 md:gap-8 md:py-16 lg:grid-cols-4 lg:gap-12 xl:grid-cols-5 xl:gap-16">
+      <div className="app-grid  mx-auto grid w-full max-w-7xl grid-cols-3 gap-4 px-4 py-8 sm:grid-cols-4 sm:gap-6 sm:px-6 sm:py-12 md:grid-cols-5 md:gap-8 md:py-16 lg:grid-cols-6 lg:gap-12 xl:grid-cols-7 xl:gap-16">
         <Projects />
         <About />
         <Blog />

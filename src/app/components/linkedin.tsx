@@ -19,7 +19,7 @@ export default function LinkedIn() {
           />
         </div>
       </Link>
-      <h1 className="mt-3 text-xs font-semibold text-gray-900 sm:text-sm">
+      <h1 className="mt-3 text-xs font-semibold text-white sm:text-sm">
         LinkedIn
       </h1>
     </div>

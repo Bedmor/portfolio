@@ -17,6 +17,7 @@ interface Tweet {
     retweet_count: number;
     reply_count: number;
   };
+  media_urls?: string[];
 }
 
 export default function LatestTweet() {
@@ -79,6 +80,12 @@ export default function LatestTweet() {
     day: "numeric",
   });
 
+  // Remove t.co URLs from text if media is present
+  const cleanText =
+    tweet.media_urls && tweet.media_urls.length > 0
+      ? tweet.text.replace(/https:\/\/t\.co\/\S+/g, "").trim()
+      : tweet.text;
+
   return (
     <a
       href={tweetUrl}
@@ -106,8 +113,26 @@ export default function LatestTweet() {
           </span>
         </div>
         <p className="line-clamp-3 text-xs text-gray-700 sm:text-sm">
-          {tweet.text}
+          {cleanText}
         </p>
+        {tweet.media_urls && tweet.media_urls.length > 0 && (
+          <div className="mt-2 grid gap-2">
+            {tweet.media_urls.map((url, index) => (
+              <div
+                key={index}
+                className="relative h-48 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-64"
+              >
+                <Image
+                  src={url}
+                  alt={`Tweet image ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+            ))}
+          </div>
+        )}
         {tweet.public_metrics && (
           <div className="mt-2 flex gap-3 text-xs text-gray-500 sm:gap-4">
             <span className="flex items-center gap-1">
