@@ -58,8 +58,8 @@ export default function Blog() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-20 w-20 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-white text-3xl transition hover:scale-110 sm:h-24 sm:w-24">
-            <NotebookPen size={64} />
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-white text-3xl transition hover:scale-110 sm:h-24 sm:w-24">
+            <NotebookPen size={48} />
           </div>
         </MorphingPopoverTrigger>
         <h1 className="mt-3 text-xs font-semibold text-white sm:text-sm">

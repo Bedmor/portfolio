@@ -48,7 +48,7 @@ export default async function ActivityFeed() {
   const payload = latestPush ? (latestPush.payload as PushPayload) : null;
 
   return (
-    <div className="col-span-1 flex w-full flex-col items-center justify-center gap-2 p-2 sm:col-span-2 sm:gap-3 sm:p-4 lg:col-span-3">
+    <div className="col-span-4 flex w-full flex-row items-center justify-center gap-2 p-2 sm:col-span-4 sm:gap-3 sm:p-4 md:col-span-5 lg:col-span-5 ">
       {latestPush && commitData && payload && latestPush.created_at && (
         <div className="flex w-full flex-col gap-2 rounded-lg bg-white p-3 shadow sm:flex-row sm:items-center sm:gap-2 sm:p-4">
           <Image

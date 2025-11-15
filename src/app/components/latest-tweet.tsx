@@ -101,7 +101,7 @@ export default function LatestTweet() {
         className="shrink-0 rounded-full sm:h-12 sm:w-12"
       />
       <div className="min-w-0 flex-1">
-        <div className="mb-1 flex flex-wrap items-center gap-1 sm:gap-2">
+        <div className=" flex flex-wrap items-center gap-1 sm:gap-2">
           <h3 className="truncate text-xs font-bold sm:text-sm">
             {tweet.author.name}
           </h3>
@@ -120,7 +120,7 @@ export default function LatestTweet() {
             {tweet.media_urls.map((url, index) => (
               <div
                 key={index}
-                className="relative h-48 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-64"
+                className="relative h-16 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-48 md:h-56"
               >
                 <Image
                   src={url}

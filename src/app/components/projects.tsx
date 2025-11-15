@@ -68,8 +68,8 @@ export default function Projects() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-20 w-20 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-white transition hover:scale-110 sm:h-24 sm:w-24">
-            <TableProperties size={64} />
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-white transition hover:scale-110 sm:h-24 sm:w-24">
+            <TableProperties size={48} />
           </div>
         </MorphingPopoverTrigger>
         <h1 className="mt-3 text-center text-xs font-semibold text-white sm:text-sm">
@@ -80,7 +80,7 @@ export default function Projects() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="fixed top-2 left-2 z-50 rounded-full bg-white p-2 text-xl font-bold text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
+          className="fixed top-10 left-4 z-50 rounded-full bg-white p-2 text-xl font-bold text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
           aria-label="Close"
         >
           &larr;

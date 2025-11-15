@@ -4,7 +4,7 @@ export default function Mail() {
     <div className="relative flex flex-col items-center justify-center">
       <Link
         href="mailto:besimozdemir33@gmail.com"
-        className="relative h-20 w-20 overflow-hidden rounded-lg bg-white p-4 transition hover:scale-110 sm:h-24 sm:w-24 sm:p-6"
+        className="relative h-16 w-16 overflow-hidden rounded-2xl bg-white p-4 transition hover:scale-110 sm:h-24 sm:w-24 sm:p-6"
       >
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>Gmail</title>
