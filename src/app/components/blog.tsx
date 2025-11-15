@@ -73,26 +73,26 @@ export default function Blog() {
             setIsOpen(false);
             setSelectedPost(null);
           }}
-          className="fixed top-4 left-4 z-50 rounded-full bg-white p-2 text-2xl text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900"
+          className="fixed top-2 left-2 z-50 rounded-full bg-white p-2 text-xl text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
           aria-label="Close"
         >
           &larr;
         </button>
 
-        <div className="mx-auto min-h-screen w-full bg-gray-100 p-4 pt-16 sm:p-6 md:p-8 lg:p-12">
+        <div className="mx-auto min-h-screen w-full bg-gray-100 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
           {!selectedPost ? (
             <>
-              <div className="mb-8 text-center">
-                <h1 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
+              <div className="mb-6 text-center sm:mb-8">
+                <h1 className="mb-2 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-4xl md:text-5xl">
                   Blog Posts
                 </h1>
-                <p className="text-gray-600">
+                <p className="text-sm text-gray-600 sm:text-base">
                   Thoughts, tutorials, and updates
                 </p>
               </div>
 
               {loading ? (
-                <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
                   {[1, 2, 3, 4, 5, 6].map((i) => (
                     <div
                       key={i}
@@ -171,13 +171,13 @@ export default function Blog() {
             <div className="mx-auto max-w-4xl">
               <button
                 onClick={handleBackToPosts}
-                className="mb-6 flex items-center gap-2 text-blue-600 hover:text-blue-700"
+                className="mb-4 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 sm:mb-6 sm:text-base"
               >
                 ← Back to all posts
               </button>
-              <article className="rounded-lg bg-white p-8 shadow-md">
+              <article className="rounded-lg bg-white p-4 shadow-md sm:p-6 md:p-8">
                 {selectedPost.coverImage && (
-                  <div className="-mx-8 -mt-8 mb-6 h-64 w-[calc(100%+4rem)] overflow-hidden bg-gray-200">
+                  <div className="-mx-4 -mt-4 mb-4 h-48 w-[calc(100%+2rem)] overflow-hidden bg-gray-200 sm:-mx-6 sm:-mt-6 sm:mb-6 sm:h-64 sm:w-[calc(100%+3rem)] md:-mx-8 md:-mt-8 md:w-[calc(100%+4rem)]">
                     <Image
                       src={selectedPost.coverImage}
                       alt={selectedPost.title}
@@ -187,10 +187,10 @@ export default function Blog() {
                     />
                   </div>
                 )}
-                <h1 className="mb-4 text-4xl font-bold text-gray-900">
+                <h1 className="mb-3 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl md:text-4xl">
                   {selectedPost.title}
                 </h1>
-                <time className="mb-6 block text-sm text-gray-400">
+                <time className="mb-4 block text-xs text-gray-400 sm:mb-6 sm:text-sm">
                   {new Date(selectedPost.createdAt).toLocaleDateString(
                     "en-US",
                     {

@@ -16,12 +16,13 @@ export default function HomePage() {
         alt="Background"
         fill
         className="absolute -z-10 object-cover"
+        priority
       />
-      <div className="header flex w-screen flex-row border-b-2 backdrop-blur-lg">
+      <div className="header flex w-full flex-row border-b-2 backdrop-blur-lg">
         <Clock />
-        <div className="lgw-9/12 w-5/12"> </div>
+        <div className="w-5/12 lg:w-9/12"> </div>
       </div>
-      <div className="app-grid mx-auto grid max-w-7xl grid-cols-3 gap-12 py-8 sm:grid-cols-3 sm:gap-8 sm:py-20 md:grid-cols-4 md:gap-12 md:py-16 lg:grid-cols-5 lg:gap-16 xl:gap-24">
+      <div className="app-grid mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 px-4 py-8 sm:grid-cols-2 sm:gap-6 sm:px-6 sm:py-12 md:grid-cols-3 md:gap-8 md:py-16 lg:grid-cols-4 lg:gap-12 xl:grid-cols-5 xl:gap-16">
         <Projects />
         <About />
         <Blog />
@@ -31,8 +32,10 @@ export default function HomePage() {
         <Mail />
         <ActivityFeed />
       </div>
-      <div className="footer mt-auto flex h-24 w-screen items-center justify-center border-t-2 backdrop-blur-lg">
-        <p className="p-4 text-center text-gray-200">Made with ❤️ by Bedmor</p>
+      <div className="footer mt-auto flex h-20 w-full items-center justify-center border-t-2 backdrop-blur-lg sm:h-24">
+        <p className="p-4 text-center text-sm text-gray-200 sm:text-base">
+          Made with ❤️ by Bedmor
+        </p>
       </div>
     </main>
   );

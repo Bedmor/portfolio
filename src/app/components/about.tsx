@@ -26,28 +26,28 @@ export default function About() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="fixed top-4 left-4 z-50 rounded-full bg-white p-2 text-2xl text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900"
+          className="fixed top-2 left-2 z-50 rounded-full bg-white p-2 text-xl text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
           aria-label="Close"
         >
           &larr;
         </button>
-        <div className="mx-auto min-h-screen w-screen bg-gray-200 p-4 pt-16 sm:p-6 md:p-8 lg:p-12">
-          <div className="mb-6 text-center sm:mb-8">
-            <h1 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
+        <div className="mx-auto min-h-screen w-screen bg-gray-200 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
+          <div className="mb-4 text-center sm:mb-6 md:mb-8">
+            <h1 className="mb-2 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
               About Me
             </h1>
           </div>
 
-          <div className="mx-auto max-w-5xl space-y-6 sm:space-y-8">
+          <div className="mx-auto max-w-5xl space-y-4 sm:space-y-6 md:space-y-8">
             {/* Introduction */}
-            <div className="rounded-xl bg-purple-100 p-6 shadow-lg sm:p-8">
-              <div className="mb-4 flex items-center gap-3">
-                <span className="text-3xl">👋</span>
-                <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            <div className="rounded-xl bg-purple-100 p-4 shadow-lg sm:p-6 md:p-8">
+              <div className="mb-3 flex items-center gap-2 sm:mb-4 sm:gap-3">
+                <span className="text-2xl sm:text-3xl">👋</span>
+                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
                   Hey, I&apos;m Besim!
                 </h2>
               </div>
-              <p className="text-lg leading-relaxed text-gray-700">
+              <p className="text-sm leading-relaxed text-gray-700 sm:text-base md:text-lg">
                 I&apos;m a passionate{" "}
                 <span className="animate-pulse font-semibold text-purple-600">
                   Full-Stack Web Developer
@@ -59,15 +59,15 @@ export default function About() {
             </div>
 
             {/* Technical Skills */}
-            <div className="rounded-xl bg-white p-6 shadow-lg sm:p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="text-3xl">⚡</span>
-                <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            <div className="rounded-xl bg-white p-4 shadow-lg sm:p-6 md:p-8">
+              <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+                <span className="text-2xl sm:text-3xl">⚡</span>
+                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
                   Technical Skills
                 </h2>
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 {/* Frontend */}
                 <div className="space-y-4">
                   <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-800">

@@ -80,19 +80,19 @@ export default function Projects() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="fixed top-4 left-4 z-50 rounded-full bg-white p-2 text-2xl font-bold text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900"
+          className="fixed top-2 left-2 z-50 rounded-full bg-white p-2 text-xl font-bold text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
           aria-label="Close"
         >
           &larr;
         </button>
-        <div className="w-full bg-gray-100 p-4 sm:p-6 md:p-8">
+        <div className="w-full bg-gray-100 p-4 pt-16 sm:p-6 sm:pt-20 md:p-8 md:pt-24">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 sm:text-4xl">
+            <h2 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:mb-6 sm:text-3xl md:text-4xl">
               My GitHub Projects
             </h2>
 
             {loading && (
-              <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
                   <div
                     key={i}

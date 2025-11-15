@@ -45,11 +45,11 @@ export default function LatestTweet() {
 
   if (loading) {
     return (
-      <div className="flex animate-pulse flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
-        <div className="h-12 w-12 rounded-full bg-gray-200"></div>
-        <div className="flex-1 space-y-2">
-          <div className="h-4 w-3/4 rounded bg-gray-200"></div>
-          <div className="h-3 w-1/2 rounded bg-gray-200"></div>
+      <div className="flex w-full animate-pulse flex-row items-center gap-2 rounded-lg bg-white p-3 shadow sm:p-4">
+        <div className="h-10 w-10 shrink-0 rounded-full bg-gray-200 sm:h-12 sm:w-12"></div>
+        <div className="min-w-0 flex-1 space-y-2">
+          <div className="h-3 w-3/4 rounded bg-gray-200 sm:h-4"></div>
+          <div className="h-2 w-1/2 rounded bg-gray-200 sm:h-3"></div>
         </div>
       </div>
     );
@@ -57,8 +57,8 @@ export default function LatestTweet() {
 
   if (error || !tweet) {
     return (
-      <div className="flex flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
-        <p className="text-sm text-gray-500">
+      <div className="flex w-full flex-row items-center gap-2 rounded-lg bg-white p-3 shadow sm:p-4">
+        <p className="text-xs text-gray-500 sm:text-sm">
           Unable to load latest tweet. Follow me{" "}
           <a
             href="https://twitter.com/acabesim"
@@ -84,28 +84,32 @@ export default function LatestTweet() {
       href={tweetUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex w-full flex-row items-start gap-3 rounded-lg bg-white p-4 shadow transition-shadow hover:shadow-md"
+      className="flex w-full flex-row items-start gap-2 rounded-lg bg-white p-3 shadow transition-shadow hover:shadow-md sm:gap-3 sm:p-4"
     >
       <Image
         src={tweet.author.profile_image_url}
         alt={`${tweet.author.name} avatar`}
-        width={48}
-        height={48}
-        className="shrink-0 rounded-full"
+        width={40}
+        height={40}
+        className="shrink-0 rounded-full sm:h-12 sm:w-12"
       />
       <div className="min-w-0 flex-1">
-        <div className="mb-1 flex items-center gap-2">
-          <h3 className="truncate text-sm font-bold">{tweet.author.name}</h3>
+        <div className="mb-1 flex flex-wrap items-center gap-1 sm:gap-2">
+          <h3 className="truncate text-xs font-bold sm:text-sm">
+            {tweet.author.name}
+          </h3>
           <span className="shrink-0 text-xs text-gray-500">
             @{tweet.author.username}
           </span>
-          <span className="shrink-0 text-xs text-gray-400">
+          <span className="hidden shrink-0 text-xs text-gray-400 sm:inline">
             · {formattedDate}
           </span>
         </div>
-        <p className="line-clamp-3 text-sm text-gray-700">{tweet.text}</p>
+        <p className="line-clamp-3 text-xs text-gray-700 sm:text-sm">
+          {tweet.text}
+        </p>
         {tweet.public_metrics && (
-          <div className="mt-2 flex gap-4 text-xs text-gray-500">
+          <div className="mt-2 flex gap-3 text-xs text-gray-500 sm:gap-4">
             <span className="flex items-center gap-1">
               <MessageCircle className="h-3 w-3" />
               {tweet.public_metrics.reply_count}

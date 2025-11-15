@@ -48,24 +48,26 @@ export default async function ActivityFeed() {
   const payload = latestPush ? (latestPush.payload as PushPayload) : null;
 
   return (
-    <div className="col-span-3 flex w-full flex-col items-center justify-center gap-1 p-4">
+    <div className="col-span-1 flex w-full flex-col items-center justify-center gap-2 p-2 sm:col-span-2 sm:gap-3 sm:p-4 lg:col-span-3">
       {latestPush && commitData && payload && latestPush.created_at && (
-        <div className="flex flex-row items-center gap-2 rounded-lg bg-white p-4 shadow">
+        <div className="flex w-full flex-col gap-2 rounded-lg bg-white p-3 shadow sm:flex-row sm:items-center sm:gap-2 sm:p-4">
           <Image
             src={latestPush.actor.avatar_url}
             alt="User Avatar"
             width={50}
             height={50}
-            className="shrink-0 rounded-full"
+            className="shrink-0 self-start rounded-full sm:self-auto"
           />
-          <h3 className="shrink-0 text-sm font-bold">Latest Commit</h3>
-          <p className="min-w-0 truncate text-sm text-gray-600">
+          <h3 className="shrink-0 text-xs font-bold sm:text-sm">
+            Latest Commit
+          </h3>
+          <p className="min-w-0 truncate text-xs text-gray-600 sm:text-sm">
             {commitData.commit.message}
           </p>
           <p className="shrink-0 text-xs text-gray-400">
             {latestPush.repo.name}
           </p>
-          <p className="shrink-0 text-xs text-gray-400">
+          <p className="hidden shrink-0 text-xs text-gray-400 sm:block">
             {payload.ref.replace("refs/heads/", "")}
           </p>
           <p className="shrink-0 text-xs whitespace-nowrap text-gray-400">
