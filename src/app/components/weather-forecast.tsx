@@ -22,7 +22,7 @@ export interface WeatherData {
 export async function fetchWeatherData(): Promise<WeatherData> {
   try {
     const apiKey = process.env.WEATHER_API_KEY;
-    
+
     if (!apiKey) {
       console.error("Weather API key not configured");
       return {

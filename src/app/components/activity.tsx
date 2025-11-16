@@ -10,8 +10,8 @@ export default async function ActivityFeed() {
 
   return (
     <div className="col-span-2 flex w-full max-w-full flex-col items-center justify-center gap-2 overflow-hidden p-2 sm:gap-3 sm:p-4 lg:col-span-3">
-      <Carouseli 
-        githubData={githubData} 
+      <Carouseli
+        githubData={githubData}
         weatherData={weatherData}
         spotifyData={spotifyData}
       />

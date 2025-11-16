@@ -133,7 +133,7 @@ export default function Spotify({ data }: { data: SpotifyData | null }) {
   const albumArt = data.item.album.images[0]?.url;
 
   return (
-    <div className="flex w-full h-full flex-col items-center gap-3 rounded-lg bg-white p-3 shadow">
+    <div className="flex h-full w-full flex-col items-center gap-3 rounded-lg bg-white p-3 shadow">
       I am now listening to
       <div className="flex flex-row items-center gap-3">
         {albumArt && (
@@ -151,7 +151,9 @@ export default function Spotify({ data }: { data: SpotifyData | null }) {
             {data.item.name}
           </h3>
           <p className="truncate text-xs text-gray-600">{artistNames}</p>
-          <p className="truncate text-xs text-gray-400">{data.item.album.name}</p>
+          <p className="truncate text-xs text-gray-400">
+            {data.item.album.name}
+          </p>
         </div>
         <svg
           className="h-6 w-6 shrink-0"
