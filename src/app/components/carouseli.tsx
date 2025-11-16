@@ -7,23 +7,22 @@ import {
 import { useState } from "react";
 import LatestTweet from "./latest-tweet";
 import GitHubActivity, { type GitHubActivityData } from "./github-activity";
-import Spotify from "./spotify";
 import { WeatherForecastDisplay, type WeatherData } from "./weather-forecast";
-
+import {Spotify ,type SpotifyData} from "./spotify";
 export default function Carouseli({
   githubData,
   weatherData,
   spotifyData,
 }: {
-  githubData: GitHubActivityData | null;
+  githubData: GitHubActivityData;
   weatherData: WeatherData;
-  spotifyData: any;
+  spotifyData: SpotifyData;
 }) {
   const [index, setIndex] = useState(0);
   const elements = [
     <GitHubActivity key={1} data={githubData} />,
     <LatestTweet key={2} />,
-    <Spotify key={3} />,
+    <Spotify data={spotifyData} key={3} />,
     <WeatherForecastDisplay key={4} data={weatherData} />,
   ];
   return (
