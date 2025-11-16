@@ -15,7 +15,7 @@ export default function About() {
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
           <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-white transition hover:scale-110 sm:h-24 sm:w-24">
-            <UserStar size={48} />
+            <UserStar className="h-12 w-12 sm:h-16 sm:w-16" />
           </div>
         </MorphingPopoverTrigger>
         <h1 className="mt-3 text-xs font-semibold text-white sm:text-sm">
@@ -26,7 +26,7 @@ export default function About() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="mt-3 w-16 h-16 z-50 rounded-full bg-white p-2 text-xl text-gray-600 shadow-lg transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
+          className=" absolute top-12 left-4 z-50 mt-3 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
           aria-label="Close"
         >
           &larr;

@@ -13,7 +13,8 @@ const config = {
             { hostname: "www.linkedin.com" },
             { hostname: "images.icon-icons.com" },
             { hostname: "avatars.githubusercontent.com" },
-            { hostname: "pbs.twimg.com" }
+            { hostname: "pbs.twimg.com" },
+            { hostname: "abs.twimg.com" }
         ]
     }
 };

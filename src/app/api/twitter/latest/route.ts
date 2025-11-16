@@ -12,6 +12,10 @@ interface TwitterTweet {
   text: string;
   created_at: string;
   author_id: string;
+  referenced_tweets?: Array<{
+    type: string;
+    id: string;
+  }>;
   public_metrics?: {
     like_count: number;
     retweet_count: number;
@@ -49,6 +53,7 @@ interface TwitterApiResponse {
   includes?: {
     users: TwitterUser[];
     media?: TwitterMedia[];
+    tweets?: TwitterTweet[];
   };
 }
 
@@ -85,7 +90,7 @@ export async function GET() {
 
     // Fetch user's tweets
     const tweetsResponse = await fetch(
-      `https://api.twitter.com/2/users/${userId}/tweets?max_results=5&tweet.fields=created_at,public_metrics,entities,attachments&expansions=attachments.media_keys&media.fields=url,preview_image_url,width,height&exclude=retweets,replies`,
+      `https://api.twitter.com/2/users/${userId}/tweets?max_results=5&tweet.fields=created_at,public_metrics,entities,attachments,referenced_tweets&expansions=attachments.media_keys,referenced_tweets.id,referenced_tweets.id.author_id&media.fields=url,preview_image_url,width,height&user.fields=name,username,profile_image_url&exclude=retweets,replies`,
       {
         headers: {
           Authorization: `Bearer ${bearerToken}`,
@@ -113,12 +118,19 @@ export async function GET() {
 
     // Check for attached media
     if (latestTweet.attachments?.media_keys && tweetsData.includes?.media) {
+      console.log("Media found:", tweetsData.includes.media);
       for (const mediaKey of latestTweet.attachments.media_keys) {
         const media = tweetsData.includes.media.find(
           (m) => m.media_key === mediaKey,
         );
-        if (media && (media.url || media.preview_image_url)) {
-          mediaUrls.push(media.url || media.preview_image_url!);
+        if (media) {
+          // For photos, use url. For videos, use preview_image_url
+          const mediaUrl =
+            media.type === "photo" ? media.url : media.preview_image_url;
+          if (mediaUrl) {
+            console.log("Adding media URL:", mediaUrl);
+            mediaUrls.push(mediaUrl);
+          }
         }
       }
     }
@@ -128,6 +140,63 @@ export async function GET() {
       for (const urlEntity of latestTweet.entities.urls) {
         if (urlEntity.images && urlEntity.images.length > 0) {
           mediaUrls.push(urlEntity.images[0]!.url);
+        }
+      }
+    }
+
+    console.log("Final media URLs:", mediaUrls);
+
+    // Extract quoted tweet if present
+    let quotedTweet = null;
+    if (latestTweet.referenced_tweets) {
+      const quotedRef = latestTweet.referenced_tweets.find(
+        (ref) => ref.type === "quoted",
+      );
+      if (quotedRef && tweetsData.includes?.tweets) {
+        const quotedTweetData = tweetsData.includes.tweets.find(
+          (t) => t.id === quotedRef.id,
+        );
+        if (quotedTweetData && tweetsData.includes?.users) {
+          const quotedAuthor = tweetsData.includes.users.find(
+            (u) => u.id === quotedTweetData.author_id,
+          );
+          if (quotedAuthor) {
+            // Extract media for quoted tweet
+            const quotedMediaUrls: string[] = [];
+            if (
+              quotedTweetData.attachments?.media_keys &&
+              tweetsData.includes?.media
+            ) {
+              for (const mediaKey of quotedTweetData.attachments.media_keys) {
+                const media = tweetsData.includes.media.find(
+                  (m) => m.media_key === mediaKey,
+                );
+                if (media) {
+                  const mediaUrl =
+                    media.type === "photo"
+                      ? media.url
+                      : media.preview_image_url;
+                  if (mediaUrl) {
+                    quotedMediaUrls.push(mediaUrl);
+                  }
+                }
+              }
+            }
+
+            quotedTweet = {
+              id: quotedTweetData.id,
+              text: quotedTweetData.text,
+              created_at: quotedTweetData.created_at,
+              author: {
+                name: quotedAuthor.name,
+                username: quotedAuthor.username,
+                profile_image_url: quotedAuthor.profile_image_url,
+              },
+              public_metrics: quotedTweetData.public_metrics,
+              media_urls:
+                quotedMediaUrls.length > 0 ? quotedMediaUrls : undefined,
+            };
+          }
         }
       }
     }
@@ -144,6 +213,7 @@ export async function GET() {
       },
       public_metrics: latestTweet.public_metrics,
       media_urls: mediaUrls.length > 0 ? mediaUrls : undefined,
+      quoted_tweet: quotedTweet,
     };
 
     return NextResponse.json(response, {

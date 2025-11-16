@@ -3,6 +3,22 @@
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-sunny: #f5a623;
+  --color-cloudy: #bdc3c7;
+  --color-rainy: #3498db;
+  --color-snowy: #ecf0f1;
+}
+.sunny {
+  background-color:var(--color-sunny);
+}
+.clouds {
+  background-color:var(--color-cloudy);
+}
+.rainy {
+  background-color:var(--color-rainy);
+}
+.snowy {
+  background-color:var(--color-snowy);
 }
 .black-and-white {
   filter: grayscale(100%) brightness(0%);

@@ -8,9 +8,11 @@ import Clock from "./components/clock";
 import Blog from "./components/blog";
 import Image from "next/image";
 import ActivityFeed from "./components/activity";
+import WeatherForecast from "./components/weather-forecast";
+import Notes from "./components/notes";
 export default function HomePage() {
   return (
-    <main className="relative flex min-h-screen w-screen flex-col">
+    <main className="relative flex max-h-screen w-screen flex-col">
       <Image
         src="/bg.jpg"
         alt="Background"
@@ -22,7 +24,7 @@ export default function HomePage() {
         <Clock />
         <div className="w-5/12 lg:w-9/12"> </div>
       </div>
-      <div className="app-grid mx-auto max-h-screen grid w-full max-w-11/12 grid-cols-3 p-2 gap-4 py-8 sm:grid-cols-3 sm:gap-6 sm:px-6 sm:py-12 md:grid-cols-5 md:gap-8 md:py-12 lg:grid-cols-6 lg:gap-12 xl:grid-cols-7 xl:gap-16">
+      <div className="app-grid mx-auto grid h-screen w-full max-w-11/12 grid-cols-3 gap-4 p-2 py-8 sm:grid-cols-3 sm:gap-6 sm:px-6 sm:py-12 md:grid-cols-5 md:gap-8 md:py-12 lg:grid-cols-6 lg:gap-12 xl:grid-cols-7 xl:gap-16">
         <Projects />
         <About />
         <Blog />
@@ -31,8 +33,11 @@ export default function HomePage() {
         <Twitter />
         <Mail />
         <ActivityFeed />
+        <div className="hidden sm:contents">
+          <WeatherForecast />
+        </div>
       </div>
-      <div className="footer relative mt-auto flex h-20 w-full items-center justify-center border-t-2 backdrop-blur-lg sm:h-24">
+      <div className="footer relative flex h-20 w-full items-center justify-center border-t-2 backdrop-blur-lg sm:h-24">
         <p className="p-4 text-center text-sm text-gray-200 sm:text-base">
           Made with ❤️ by Bedmor
         </p>
