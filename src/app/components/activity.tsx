@@ -7,6 +7,10 @@ export default async function ActivityFeed() {
   const weatherData = await fetchWeatherData();
   const spotifyData = await fetchSpotifyData();
 
+  if (!githubData || !weatherData || !spotifyData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="col-span-2 flex w-full max-w-full flex-col items-center justify-center gap-2 overflow-hidden p-2 sm:gap-3 sm:p-4 lg:col-span-3">
       <Carouseli githubData={githubData} weatherData={weatherData} spotifyData={spotifyData} />
