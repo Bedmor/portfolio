@@ -8,15 +8,16 @@ import { useState } from "react";
 import LatestTweet from "./latest-tweet";
 import GitHubActivity, { type GitHubActivityData } from "./github-activity";
 import { WeatherForecastDisplay, type WeatherData } from "./weather-forecast";
-import {Spotify ,type SpotifyData} from "./spotify";
+import Spotify, { type SpotifyData } from "./spotify";
+
 export default function Carouseli({
   githubData,
   weatherData,
   spotifyData,
 }: {
-  githubData: GitHubActivityData;
+  githubData: GitHubActivityData | null;
   weatherData: WeatherData;
-  spotifyData: SpotifyData;
+  spotifyData: SpotifyData | null;
 }) {
   const [index, setIndex] = useState(0);
   const elements = [

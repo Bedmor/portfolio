@@ -107,7 +107,7 @@ export async function fetchSpotifyData(): Promise<SpotifyData | null> {
 
 import Image from "next/image";
 
-export function Spotify({ data }: { data: SpotifyData | null }) {
+export default function Spotify({ data }: { data: SpotifyData | null }) {
   if (!data?.is_playing) {
     return (
       <div className="flex w-full flex-col items-center justify-center gap-2 rounded-lg bg-white p-4 shadow">
