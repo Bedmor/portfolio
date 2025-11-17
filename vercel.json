@@ -1,5 +1,5 @@
 {
-  "buildCommand": "prisma db push && prisma generate && next build",
+  "buildCommand": "prisma db push && prisma generate --no-engine && next build",
   "installCommand": "npm ci --ignore-scripts && npm run postinstall",
   "framework": "nextjs"
 }

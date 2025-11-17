@@ -32,10 +32,7 @@ export default function HomePage() {
         <LinkedIn />
         <Twitter />
         <Mail />
-        <ActivityFeed />
-        <div className="hidden sm:contents">
-          <WeatherForecast />
-        </div>
+        <ActivityFeed /> 
       </div>
       <div className="footer relative flex h-20 w-full items-center justify-center border-t-2 backdrop-blur-lg sm:h-24">
         <p className="p-4 text-center text-sm text-gray-200 sm:text-base">
