@@ -68,19 +68,19 @@ export default function Projects() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-white transition hover:scale-110 sm:h-24 sm:w-24">
-            <TableProperties className="h-12 w-12 sm:h-16 sm:w-16" />
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-xl backdrop-blur-xl transition hover:scale-110 hover:border-white/30 hover:bg-white/20 hover:shadow-2xl sm:h-24 sm:w-24">
+            <TableProperties className="h-10 w-10 text-white drop-shadow-lg sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
-        <h1 className="mt-3 text-center text-xs font-semibold text-white sm:text-sm">
+        <h1 className="mt-3 text-center text-xs font-semibold text-white drop-shadow-md sm:text-sm">
           Projects
         </h1>
       </div>
 
-      <MorphingPopoverContent className="z-50 h-screen w-screen  overflow-y-auto">
+      <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="z-50 absolute top-12 left-4 h-10 w-10 md:h-16 md:w-16 rounded-full p-2 text-3xl font-bold text-black transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl"
+          className="absolute top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-3xl font-bold text-black transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
           aria-label="Close"
         >
           &larr;

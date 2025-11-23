@@ -1,15 +1,11 @@
 import Projects from "./components/projects";
 import About from "./components/about";
-import GitHub from "./components/github";
-import LinkedIn from "./components/linkedin";
-import Twitter from "./components/twitter";
-import Mail from "./components/mail";
 import Clock from "./components/clock";
 import Blog from "./components/blog";
 import Image from "next/image";
 import ActivityFeed from "./components/activity";
-import WeatherForecast from "./components/weather-forecast";
-import Notes from "./components/notes";
+import Contact from "./components/contact";
+import ViewCounter from "./components/view-counter";
 export default function HomePage() {
   return (
     <main className="relative flex max-h-screen w-screen flex-col">
@@ -20,23 +16,36 @@ export default function HomePage() {
         className="fixed -z-10 object-cover"
         priority
       />
-      <div className="header flex w-full flex-row border-b-2 backdrop-blur-lg">
+      <div className="header flex w-full flex-row items-center justify-between border-b border-white/20 bg-black/10 px-4 py-3 shadow-lg backdrop-blur-xl">
         <Clock />
-        <div className="w-5/12 lg:w-9/12"> </div>
+        <ViewCounter />
       </div>
-      <div className="app-grid mx-auto grid h-screen w-full max-w-11/12 grid-cols-3 gap-4 p-2 py-8 sm:grid-cols-3 sm:gap-6 sm:px-6 sm:py-12 md:grid-cols-5 md:gap-8 md:py-12 lg:grid-cols-6 lg:gap-12 xl:grid-cols-7 xl:gap-16">
-        <Projects />
-        <About />
-        <Blog />
-        <GitHub />
-        <LinkedIn />
-        <Twitter />
-        <Mail />
-        <ActivityFeed /> 
+
+      <div className="mx-auto flex h-screen w-full max-w-6xl flex-col gap-8 overflow-y-auto px-4 py-8 sm:px-6 sm:py-12">
+
+        {/* Apps Section */}
+        <div className="space-y-4">
+          
+          <div className="app-grid flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12">
+            <Projects />
+            <About />
+            <Blog />
+            <Contact />
+          </div>
+        </div>
+
+        {/* Activity Section */}
+        <div className="space-y-4">
+          
+          <div className="mx-auto w-full max-w-9/12">
+            <ActivityFeed />
+          </div>
+        </div>
       </div>
-      <div className="footer relative flex h-20 w-full items-center justify-center border-t-2 backdrop-blur-lg sm:h-24">
-        <p className="p-4 text-center text-sm text-gray-200 sm:text-base">
-          Made with ❤️ by Bedmor
+      <div className="footer relative flex w-full items-center justify-center border-t border-white/20 bg-black/10 py-6 shadow-lg backdrop-blur-xl">
+        <p className="text-center text-sm text-gray-300 sm:text-base">
+          Made with <span className="text-red-400">❤️</span> by{" "}
+          <span className="font-semibold text-white">Bedmor</span>
         </p>
       </div>
     </main>

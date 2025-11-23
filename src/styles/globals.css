@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-sunny: #f5a623;
   --color-cloudy: #bdc3c7;
@@ -9,20 +10,58 @@
   --color-snowy: #ecf0f1;
 }
 .sunny {
-  background-color:var(--color-sunny);
+  background-color: var(--color-sunny);
 }
 .clouds {
-  background-color:var(--color-cloudy);
+  background-color: var(--color-cloudy);
 }
 .rainy {
-  background-color:var(--color-rainy);
+  background-color: var(--color-rainy);
 }
 .snowy {
-  background-color:var(--color-snowy);
+  background-color: var(--color-snowy);
 }
 .black-and-white {
   filter: grayscale(100%) brightness(0%);
 }
 .flip {
   transform: scaleX(-1);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+/* Add smooth scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }

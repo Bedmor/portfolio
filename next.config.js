@@ -14,7 +14,8 @@ const config = {
             { hostname: "images.icon-icons.com" },
             { hostname: "avatars.githubusercontent.com" },
             { hostname: "pbs.twimg.com" },
-            { hostname: "abs.twimg.com" }
+            { hostname: "abs.twimg.com" },
+            { hostname: "cdn.jsdelivr.net" },
         ]
     }
 };
