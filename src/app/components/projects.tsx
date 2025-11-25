@@ -128,8 +128,8 @@ export default function Projects() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {repos.map((repo, index) => {
                   const repoLink = getRepoLink(repo);
-                  const isGitHubPages =
-                    repo.has_pages || repo.homepage?.includes("github.io");
+                  const isGitHubProduction =
+                    repo.homepage?.toLowerCase();
                   return (
                     <a
                       key={repo.id}
@@ -147,7 +147,7 @@ export default function Projects() {
                           <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600">
                             {repo.name}
                           </h3>
-                          {isGitHubPages && (
+                          {isGitHubProduction && (
                             <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
                               <svg
                                 className="h-3 w-3"
