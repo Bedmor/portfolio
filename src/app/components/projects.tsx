@@ -52,13 +52,9 @@ export default function Projects() {
   }
 
   function getRepoLink(repo: GitHubRepo): string {
-    // Check for GitHub Pages in homepage
-    if (repo.homepage?.includes("github.io")) {
+    // Check for any homepage (production) URL
+    if (repo.homepage) {
       return repo.homepage;
-    }
-    // Check if has_pages is true and construct the GitHub Pages URL
-    if (repo.has_pages) {
-      return `https://bedmor.github.io/${repo.name}`;
     }
     // Default to repository URL
     return repo.html_url;
