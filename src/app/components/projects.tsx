@@ -10,6 +10,9 @@ import {
 interface GitHubRepo {
   id: number;
   name: string;
+  owner?: {
+    login: string;
+  };
   description: string;
   html_url: string;
   language: string;
@@ -55,6 +58,9 @@ export default function Projects() {
     // Check for any homepage (production) URL
     if (repo.homepage) {
       return repo.homepage;
+    }
+    if (repo.has_pages) {
+      return `https://${repo.owner?.login}.github.io/${repo.name}/`;
     }
     // Default to repository URL
     return repo.html_url;
@@ -128,8 +134,7 @@ export default function Projects() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {repos.map((repo, index) => {
                   const repoLink = getRepoLink(repo);
-                  const isGitHubProduction =
-                    repo.homepage?.toLowerCase();
+                  const isGitHubProduction = repo.homepage?.toLowerCase();
                   return (
                     <a
                       key={repo.id}
