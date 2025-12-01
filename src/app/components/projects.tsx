@@ -134,7 +134,7 @@ export default function Projects() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {repos.map((repo, index) => {
                   const repoLink = getRepoLink(repo);
-                  const isGitHubProduction = repo.homepage?.toLowerCase();
+                  const isGitHubProduction = repoLink === repo.html_url ? false : (repo.has_pages || !!repo.homepage);
                   return (
                     <a
                       key={repo.id}
