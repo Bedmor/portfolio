@@ -72,14 +72,14 @@ export default function GitHubActivity({
 }) {
   if (!data) {
     return (
-      <div className="flex w-full flex-col gap-2 rounded-lg bg-white p-3 shadow sm:flex-row sm:items-center sm:gap-2 sm:p-4">
+      <div className="glass flex w-full flex-col gap-2 rounded-lg p-3 shadow sm:flex-row sm:items-center sm:gap-2 sm:p-4">
         <p className="text-xs text-gray-600">No recent activity</p>
       </div>
     );
   }
 
   return (
-    <div className="flex w-full flex-col gap-2 rounded-lg bg-white p-3 shadow sm:items-center sm:gap-2 sm:p-4">
+    <div className="glass flex w-full flex-col gap-2 rounded-lg p-3 shadow sm:items-center sm:gap-2 sm:p-4">
       <Image
         src={data.avatarUrl}
         alt="User Avatar"

@@ -37,7 +37,7 @@ export default function Resume() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-green-500 to-teal-500 transition hover:scale-110 sm:h-24 sm:w-24">
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-linear-to-br from-green-500 to-teal-500 transition hover:scale-110 sm:h-24 sm:w-24">
             <FileDown className="h-10 w-10 text-white sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
@@ -54,7 +54,7 @@ export default function Resume() {
         >
           &larr;
         </button>
-        <div className="min-h-screen w-screen bg-gradient-to-br from-green-900 via-teal-900 to-green-900 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
+        <div className="min-h-screen w-screen bg-linear-to-br from-green-900 via-teal-900 to-green-900 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
           <div className="mb-6 text-center sm:mb-8 md:mb-12">
             <h1 className="mb-2 text-3xl font-bold text-white sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl">
               Resume / CV
@@ -66,9 +66,9 @@ export default function Resume() {
 
           <div className="mx-auto max-w-4xl space-y-6 sm:space-y-8">
             {/* Download Card */}
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-lg sm:p-8 md:p-10">
+            <div className="glass rounded-2xl p-6 sm:p-8 md:p-10">
               <div className="mb-6 flex items-center justify-center">
-                <div className="rounded-full bg-white/20 p-8">
+                <div className="glass rounded-full bg-white/20 p-8">
                   <FileDown className="h-16 w-16 text-white sm:h-20 sm:w-20" />
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function Resume() {
               <button
                 onClick={handleDownload}
                 disabled={downloading}
-                className="mx-auto flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-lg font-semibold text-green-900 transition hover:bg-green-50 disabled:opacity-50 sm:w-auto sm:px-8"
+                className="btn btn-success mx-auto flex w-full items-center justify-center gap-3 rounded-xl sm:w-auto sm:px-8"
               >
                 {downloading ? (
                   <>
@@ -101,12 +101,12 @@ export default function Resume() {
             </div>
 
             {/* Quick Summary */}
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-lg sm:p-8">
+            <div className="glass rounded-2xl p-6 sm:p-8">
               <h3 className="mb-4 text-xl font-bold text-white sm:text-2xl">
                 📄 What&apos;s Inside?
               </h3>
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-lg bg-white/5 p-4">
+                <div className="glass rounded-lg bg-white/5 p-4">
                   <h4 className="mb-2 font-semibold text-white">
                     💼 Experience
                   </h4>
@@ -114,7 +114,7 @@ export default function Resume() {
                     Detailed work history and achievements
                   </p>
                 </div>
-                <div className="rounded-lg bg-white/5 p-4">
+                <div className="glass rounded-lg bg-white/5 p-4">
                   <h4 className="mb-2 font-semibold text-white">
                     🎓 Education
                   </h4>
@@ -122,13 +122,13 @@ export default function Resume() {
                     Academic background and certifications
                   </p>
                 </div>
-                <div className="rounded-lg bg-white/5 p-4">
+                <div className="glass rounded-lg bg-white/5 p-4">
                   <h4 className="mb-2 font-semibold text-white">🛠️ Skills</h4>
                   <p className="text-sm text-green-100">
                     Technical skills and proficiencies
                   </p>
                 </div>
-                <div className="rounded-lg bg-white/5 p-4">
+                <div className="glass rounded-lg bg-white/5 p-4">
                   <h4 className="mb-2 font-semibold text-white">🚀 Projects</h4>
                   <p className="text-sm text-green-100">
                     Notable projects and contributions
@@ -138,7 +138,7 @@ export default function Resume() {
             </div>
 
             {/* Note */}
-            <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-lg sm:p-6">
+            <div className="glass rounded-2xl p-4 sm:p-6">
               <p className="text-center text-xs text-green-200 sm:text-sm">
                 💡 Resume last updated: November 2025
               </p>

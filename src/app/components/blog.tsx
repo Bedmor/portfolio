@@ -58,7 +58,7 @@ export default function Blog() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-pink-400/30 bg-pink-500/20 text-3xl shadow-xl backdrop-blur-xl transition hover:scale-110 hover:border-pink-400/50 hover:bg-pink-500/30 hover:shadow-2xl sm:h-24 sm:w-24">
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-pink-400/30 bg-pink-500/20 text-3xl shadow-xl transition hover:scale-110 hover:border-pink-400/50 hover:bg-pink-500/30 hover:shadow-2xl sm:h-24 sm:w-24">
             <NotebookPen className="h-10 w-10 text-white drop-shadow-lg sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
@@ -96,7 +96,7 @@ export default function Blog() {
                   {[1, 2, 3, 4, 5, 6].map((i) => (
                     <div
                       key={i}
-                      className="overflow-hidden rounded-lg bg-white shadow-md"
+                      className="glass overflow-hidden rounded-lg shadow-md"
                     >
                       {/* Image skeleton */}
                       <div className="h-48 w-full animate-pulse bg-gray-200" />
@@ -129,7 +129,7 @@ export default function Blog() {
                     <article
                       key={post.id}
                       onClick={() => handlePostClick(post)}
-                      className="group cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-all hover:scale-105 hover:shadow-xl"
+                      className="group glass cursor-pointer overflow-hidden rounded-lg shadow-md transition-all hover:scale-105 hover:shadow-xl"
                     >
                       {post.coverImage && (
                         <div className="h-48 w-full overflow-hidden bg-gray-200">
@@ -175,7 +175,7 @@ export default function Blog() {
               >
                 ← Back to all posts
               </button>
-              <article className="rounded-lg bg-white p-4 shadow-md sm:p-6 md:p-8">
+              <article className="glass rounded-lg p-4 shadow-md sm:p-6 md:p-8">
                 {selectedPost.coverImage && (
                   <div className="-mx-4 -mt-4 mb-4 h-48 w-[calc(100%+2rem)] overflow-hidden bg-gray-200 sm:-mx-6 sm:-mt-6 sm:mb-6 sm:h-64 sm:w-[calc(100%+3rem)] md:-mx-8 md:-mt-8 md:w-[calc(100%+4rem)]">
                     <Image

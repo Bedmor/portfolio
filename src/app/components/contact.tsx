@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Phone, Mail as MailIcon, MapPin, Copy, Check } from "lucide-react";
+import { Phone, Mail as MailIcon, Copy, Check } from "lucide-react";
 import {
   MorphingPopover,
   MorphingPopoverContent,
@@ -19,7 +19,7 @@ export default function Contact() {
     twitter: "https://twitter.com/acabesim",
   };
 
-  const copyToClipboard = async (text: string, type: "email" | "phone") => {
+  const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedEmail(true);
@@ -33,7 +33,7 @@ export default function Contact() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-orange-400/30 bg-orange-500/20 shadow-xl backdrop-blur-xl transition hover:scale-110 hover:border-orange-400/50 hover:bg-orange-500/30 hover:shadow-2xl sm:h-24 sm:w-24">
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-orange-400/30 bg-orange-500/20 shadow-xl transition hover:scale-110 hover:border-orange-400/50 hover:bg-orange-500/30 hover:shadow-2xl sm:h-24 sm:w-24">
             <Phone className="h-10 w-10 text-white drop-shadow-lg sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
@@ -50,7 +50,7 @@ export default function Contact() {
         >
           &larr;
         </button>
-        <div className="min-h-screen w-screen bg-gradient-to-br from-orange-900 via-pink-900 to-orange-900 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
+        <div className="min-h-screen w-screen bg-linear-to-br from-orange-900 via-pink-900 to-orange-900 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
           <div className="mb-6 text-center sm:mb-8 md:mb-12">
             <h1 className="mb-2 text-3xl font-bold text-white sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl">
               Get In Touch
@@ -62,16 +62,16 @@ export default function Contact() {
 
           <div className="mx-auto max-w-4xl space-y-6 sm:space-y-8">
             {/* Email */}
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-lg sm:p-8">
+            <div className="glass rounded-2xl p-6 sm:p-8">
               <div className="mb-4 flex items-center gap-3">
-                <div className="rounded-full bg-white/20 p-3">
+                <div className="glass rounded-full bg-white/20 p-3">
                   <MailIcon className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white sm:text-2xl">
                   Email
                 </h3>
               </div>
-              <div className="flex items-center justify-between rounded-lg bg-white/5 p-4">
+              <div className="glass flex items-center justify-between rounded-lg bg-white/5 p-4">
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="text-sm text-white hover:text-orange-200 sm:text-base"
@@ -79,8 +79,8 @@ export default function Contact() {
                   {contactInfo.email}
                 </a>
                 <button
-                  onClick={() => copyToClipboard(contactInfo.email, "email")}
-                  className="rounded-lg bg-white/10 p-2 transition hover:bg-white/20"
+                  onClick={() => copyToClipboard(contactInfo.email)}
+                  className="btn btn-ghost btn-sm glass"
                   aria-label="Copy email"
                 >
                   {copiedEmail ? (
@@ -98,7 +98,7 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-lg sm:p-8">
+            <div className="glass rounded-2xl p-6 sm:p-8">
               <h3 className="mb-6 text-xl font-bold text-white sm:text-2xl">
                 🌐 Connect on Social Media
               </h3>
@@ -107,7 +107,7 @@ export default function Contact() {
                   href={contactInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-center gap-3 rounded-xl bg-blue-600 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-blue-700 hover:shadow-xl"
+                  className="group glass flex flex-col items-center gap-3 rounded-xl bg-blue-600/20 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-blue-700/30 hover:shadow-xl"
                 >
                   <svg
                     className="h-12 w-12 fill-current"
@@ -124,7 +124,7 @@ export default function Contact() {
                   href={contactInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-center gap-3 rounded-xl bg-gray-800 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-gray-900 hover:shadow-xl"
+                  className="group glass flex flex-col items-center gap-3 rounded-xl bg-gray-800/20 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-gray-900/30 hover:shadow-xl"
                 >
                   <svg
                     className="h-12 w-12 fill-current"
@@ -141,7 +141,7 @@ export default function Contact() {
                   href={contactInfo.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col items-center gap-3 rounded-xl bg-sky-500 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-sky-600 hover:shadow-xl"
+                  className="group glass flex flex-col items-center gap-3 rounded-xl bg-sky-500/20 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-sky-600/30 hover:shadow-xl"
                 >
                   <svg
                     className="h-12 w-12 fill-current"
@@ -156,7 +156,7 @@ export default function Contact() {
                 </a>
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="group flex flex-col items-center gap-3 rounded-xl bg-red-600 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-red-700 hover:shadow-xl"
+                  className="group glass flex flex-col items-center gap-3 rounded-xl bg-red-600/20 p-4 text-white shadow-lg transition hover:scale-105 hover:bg-red-700/30 hover:shadow-xl"
                 >
                   <svg
                     className="h-12 w-12 fill-current"
@@ -173,7 +173,7 @@ export default function Contact() {
             </div>
 
             {/* Availability */}
-            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-lg sm:p-8">
+            <div className="glass rounded-2xl p-6 text-center sm:p-8">
               <div className="mb-3 inline-block rounded-full bg-green-500 px-4 py-2">
                 <span className="text-sm font-semibold text-white">
                   🟢 Available for opportunities

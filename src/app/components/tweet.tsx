@@ -51,7 +51,7 @@ export default function Tweet({
   return (
     <Component
       {...linkProps}
-      className={`flex w-full flex-row items-start gap-2 rounded-lg bg-white p-3 shadow sm:gap-3 sm:p-4 ${
+      className={`glass flex w-full flex-row items-start gap-2 rounded-lg p-3 shadow sm:gap-3 sm:p-4 ${
         !isQuoted ? "transition-shadow hover:shadow-md" : ""
       } ${isQuoted ? "border border-gray-200" : ""}`}
     >
@@ -70,18 +70,18 @@ export default function Tweet({
             {tweet.author.name}
           </h3>
           <span
-            className={`shrink-0 text-gray-500 ${isQuoted ? "text-xs" : "text-xs"}`}
+            className={`shrink-0 text-gray-800 ${isQuoted ? "text-xs" : "text-xs"}`}
           >
             @{tweet.author.username}
           </span>
           <span
-            className={`shrink-0 text-gray-400 ${isQuoted ? "text-xs" : "text-xs"} ${isQuoted ? "" : "hidden sm:inline"}`}
+            className={`shrink-0 text-gray-800 ${isQuoted ? "text-xs" : "text-xs"} ${isQuoted ? "" : "hidden sm:inline"}`}
           >
             · {formattedDate}
           </span>
         </div>
         <p
-          className={`text-gray-700 ${isQuoted ? "line-clamp-3 text-xs" : "line-clamp-3 text-xs sm:text-sm"}`}
+          className={`text-gray-900 ${isQuoted ? "line-clamp-3 text-xs" : "line-clamp-3 text-xs sm:text-sm"}`}
         >
           {cleanText}
         </p>
@@ -92,7 +92,7 @@ export default function Tweet({
             {tweet.media_urls.map((url, index) => (
               <div
                 key={index}
-                className={`relative w-full overflow-hidden rounded-lg bg-gray-100 ${
+                className={`glass relative w-full overflow-hidden rounded-lg bg-gray-100/10 ${
                   isQuoted ? "h-32" : "h-16 sm:h-48 md:h-56"
                 }`}
               >

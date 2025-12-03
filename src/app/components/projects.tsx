@@ -70,7 +70,7 @@ export default function Projects() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-xl backdrop-blur-xl transition hover:scale-110 hover:border-white/30 hover:bg-white/20 hover:shadow-2xl sm:h-24 sm:w-24">
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-white/20 shadow-xl transition hover:scale-110 hover:border-white/30 hover:bg-white/20 hover:shadow-2xl sm:h-24 sm:w-24">
             <TableProperties className="h-10 w-10 text-white drop-shadow-lg sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
@@ -98,7 +98,7 @@ export default function Projects() {
                 {[1, 2, 3, 4, 5, 6].map((i) => (
                   <div
                     key={i}
-                    className="overflow-hidden rounded-lg bg-white shadow-md"
+                    className="glass overflow-hidden rounded-lg shadow-md"
                   >
                     {/* Image skeleton */}
                     <div className="h-48 w-full animate-pulse bg-gray-200" />
@@ -124,7 +124,7 @@ export default function Projects() {
             )}
 
             {error && (
-              <div className="mx-auto max-w-md rounded-lg bg-red-50 p-4 text-center text-red-600">
+              <div className="glass mx-auto max-w-md rounded-lg bg-red-50/10 p-4 text-center text-red-600">
                 <p className="font-semibold">Error loading repositories</p>
                 <p className="text-sm">{error}</p>
               </div>
@@ -134,14 +134,17 @@ export default function Projects() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {repos.map((repo, index) => {
                   const repoLink = getRepoLink(repo);
-                  const isGitHubProduction = repoLink === repo.html_url ? false : (repo.has_pages || !!repo.homepage);
+                  const isGitHubProduction =
+                    repoLink === repo.html_url
+                      ? false
+                      : repo.has_pages || !!repo.homepage;
                   return (
                     <a
                       key={repo.id}
                       href={repoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group animate-in fade-in slide-in-from-bottom rounded-lg bg-white p-5 shadow-md transition duration-500 hover:shadow-xl"
+                      className="group animate-in fade-in slide-in-from-bottom glass rounded-lg p-5 shadow-md transition duration-500 hover:shadow-xl"
                       style={{
                         animationDelay: `${index * 50}ms`,
                         animationFillMode: "backwards",
@@ -222,7 +225,7 @@ export default function Projects() {
             )}
 
             {!loading && !error && repos.length === 0 && (
-              <div className="rounded-lg bg-gray-50 p-8 text-center text-gray-600">
+              <div className="glass rounded-lg bg-gray-50/10 p-8 text-center text-gray-600">
                 <p className="text-lg">No repositories found</p>
               </div>
             )}

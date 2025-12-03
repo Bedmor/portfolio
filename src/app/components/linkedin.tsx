@@ -7,7 +7,7 @@ export default function LinkedIn() {
     <div className="relative flex flex-col items-center justify-center">
       <Link
         href="https://www.linkedin.com/in/besim-özdemir-0848b1241"
-        className="relative h-16 w-16 overflow-hidden rounded-2xl bg-white transition hover:scale-110 sm:h-24 sm:w-24"
+        className="glass relative h-16 w-16 overflow-hidden rounded-2xl p-4 transition hover:scale-110 sm:h-24 sm:w-24"
       >
         <div className="h-16 w-16 p-4 sm:h-24 sm:w-24">
           <Image

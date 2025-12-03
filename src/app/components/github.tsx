@@ -4,7 +4,7 @@ export default function GitHub() {
   return (
     <div className="relative flex flex-col items-center justify-center">
       <Link
-        className="relative h-16 w-16 overflow-hidden rounded-2xl bg-white p-4 transition hover:scale-110 sm:h-24 sm:w-24"
+        className="glass relative h-16 w-16 overflow-hidden rounded-2xl p-4 transition hover:scale-110 sm:h-24 sm:w-24"
         href="https://github.com/bedmor"
       >
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

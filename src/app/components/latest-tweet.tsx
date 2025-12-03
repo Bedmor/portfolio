@@ -29,7 +29,7 @@ export default function LatestTweet() {
 
   if (loading) {
     return (
-      <div className="flex w-full animate-pulse flex-row items-center gap-2 rounded-lg bg-white p-3 shadow sm:p-4">
+      <div className="glass flex w-full animate-pulse flex-row items-center gap-2 rounded-lg p-3 shadow sm:p-4">
         <div className="h-10 w-10 shrink-0 rounded-full bg-gray-200 sm:h-12 sm:w-12"></div>
         <div className="min-w-0 flex-1 space-y-2">
           <div className="h-3 w-3/4 rounded bg-gray-200 sm:h-4"></div>
@@ -41,7 +41,7 @@ export default function LatestTweet() {
 
   if (error || !tweet) {
     return (
-      <div className="flex w-full flex-row items-center gap-2 rounded-lg bg-white p-3 shadow sm:p-4">
+      <div className="glass flex w-full flex-row items-center gap-2 rounded-lg p-3 shadow sm:p-4">
         <p className="text-xs text-gray-500 sm:text-sm">
           Unable to load latest tweet. Follow me{" "}
           <a

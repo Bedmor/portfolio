@@ -110,7 +110,7 @@ import Image from "next/image";
 export default function Spotify({ data }: { data: SpotifyData | null }) {
   if (!data?.is_playing) {
     return (
-      <div className="flex w-full flex-col items-center justify-center gap-2 rounded-lg bg-white p-4 shadow">
+      <div className="glass flex w-full flex-col items-center justify-center gap-2 rounded-lg p-4 shadow">
         <div className="flex items-center gap-2">
           <svg
             className="h-8 w-8"
@@ -133,7 +133,7 @@ export default function Spotify({ data }: { data: SpotifyData | null }) {
   const albumArt = data.item.album.images[0]?.url;
 
   return (
-    <div className="flex h-full w-full flex-col items-center gap-3 rounded-lg bg-white p-3 shadow">
+    <div className="glass flex h-full w-full flex-col items-center gap-3 rounded-lg p-3 shadow">
       I am now listening to
       <div className="flex flex-row items-center gap-3">
         {albumArt && (

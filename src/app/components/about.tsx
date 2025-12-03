@@ -11,7 +11,6 @@ import {
   Globe,
   Briefcase,
   Zap,
-  Hand,
 } from "lucide-react";
 import Image from "next/image";
 import {
@@ -132,7 +131,7 @@ export default function About() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-purple-400/30 bg-purple-500/20 shadow-xl backdrop-blur-xl transition hover:scale-110 hover:border-purple-400/50 hover:bg-purple-500/30 hover:shadow-2xl sm:h-24 sm:w-24">
+          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-purple-400/30 bg-purple-500/20 shadow-xl transition hover:scale-110 hover:border-purple-400/50 hover:bg-purple-500/30 hover:shadow-2xl sm:h-24 sm:w-24">
             <UserStar className="h-10 w-10 text-white drop-shadow-lg sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
@@ -158,7 +157,7 @@ export default function About() {
 
           <div className="mx-auto max-w-5xl space-y-4 sm:space-y-6 md:space-y-8">
             {/* Introduction */}
-            <div className="rounded-xl bg-purple-100 p-4 shadow-lg sm:p-6 md:p-8">
+            <div className="glass rounded-xl bg-purple-500/10 p-4 shadow-lg sm:p-6 md:p-8">
               <div className="mb-3 flex items-center gap-2 sm:mb-4 sm:gap-3">
                 <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
                   Hey, I&apos;m
@@ -179,7 +178,7 @@ export default function About() {
             </div>
 
             {/* Technical Skills */}
-            <div className="rounded-xl bg-white p-4 shadow-lg sm:p-6 md:p-8">
+            <div className="glass rounded-xl p-4 shadow-lg sm:p-6 md:p-8">
               <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
                 <Zap className="h-8 w-8 text-yellow-500 sm:h-10 sm:w-10" />
                 <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
@@ -198,7 +197,7 @@ export default function About() {
                       {category.items.map((skill, skillIndex) => (
                         <div
                           key={skillIndex}
-                          className="group flex flex-grow basis-[140px] flex-col items-center justify-center rounded-xl bg-gray-50 p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:shadow-purple-500/10"
+                          className="group glass flex grow basis-[140px] flex-col items-center justify-center rounded-xl bg-gray-50/10 p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white/20 hover:shadow-lg hover:shadow-purple-500/10"
                         >
                           <div className="relative mb-3 h-10 w-10 transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12">
                             <Image
@@ -220,7 +219,7 @@ export default function About() {
             </div>
 
             {/* What I Do */}
-            <div className="rounded-xl bg-linear-to-br from-purple-50 to-pink-50 p-6 shadow-lg sm:p-8">
+            <div className="glass rounded-xl bg-linear-to-br from-purple-50/10 to-pink-50/10 p-6 shadow-lg sm:p-8">
               <div className="mb-6 flex items-center gap-3">
                 <Briefcase className="h-8 w-8 text-purple-600 sm:h-10 sm:w-10" />
                 <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -228,7 +227,7 @@ export default function About() {
                 </h2>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="group rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
+                <div className="group glass rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
                   <div className="mb-4 transition-transform group-hover:scale-110">
                     <Globe className="h-10 w-10 text-blue-500" />
                   </div>
@@ -240,7 +239,7 @@ export default function About() {
                     frameworks like Next.js and React.
                   </p>
                 </div>
-                <div className="group rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
+                <div className="group glass rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
                   <div className="mb-4 transition-transform group-hover:scale-110">
                     <Palette className="h-10 w-10 text-pink-500" />
                   </div>
@@ -252,7 +251,7 @@ export default function About() {
                     detail and user experience.
                   </p>
                 </div>
-                <div className="group rounded-xl bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
+                <div className="group glass rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-xl">
                   <div className="mb-4 transition-transform group-hover:scale-110">
                     <Server className="h-10 w-10 text-green-500" />
                   </div>
@@ -268,7 +267,7 @@ export default function About() {
             </div>
 
             {/* Resume Download */}
-            <div className="rounded-xl bg-linear-to-br from-green-50 to-teal-50 p-6 shadow-lg sm:p-8">
+            <div className="glass rounded-xl bg-linear-to-br from-green-50/10 to-teal-50/10 p-6 shadow-lg sm:p-8">
               <div className="mb-6 flex items-center gap-3">
                 <FileDown className="h-8 w-8 text-green-600" />
                 <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -282,7 +281,7 @@ export default function About() {
               <button
                 onClick={handleDownload}
                 disabled={downloading}
-                className="flex w-full items-center justify-center gap-3 rounded-xl bg-green-500 px-6 py-4 font-semibold text-white shadow-lg transition hover:scale-105 hover:shadow-xl disabled:opacity-50 sm:w-auto"
+                className="btn btn-success btn-block rounded-xl sm:w-auto"
               >
                 {downloading ? (
                   <>

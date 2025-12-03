@@ -118,7 +118,7 @@ function getWeatherGradient(condition: string) {
 export function WeatherForecastDisplay({ data }: { data: WeatherData }) {
   return (
     <div
-      className={`flex w-full flex-col items-center justify-between gap-4 rounded-lg bg-linear-to-br ${getWeatherGradient(data.Condition)} p-4 text-white shadow-lg sm:gap-4 sm:p-6`}
+      className={`glass flex w-full flex-col items-center justify-between gap-4 rounded-lg bg-linear-to-br ${getWeatherGradient(data.Condition)} p-4 text-white shadow-lg sm:gap-4 sm:p-6`}
     >
       {/* Location */}
       <div className="w-full text-center">
@@ -170,7 +170,7 @@ export default async function WeatherForecast() {
 
   return (
     <div
-      className={`col-span-2 flex w-full flex-col items-center justify-between gap-4 rounded-lg bg-linear-to-br ${getWeatherGradient(weather.Condition)} p-4 text-white shadow-lg sm:col-span-4 sm:gap-4 sm:p-6 md:col-span-5 lg:col-span-3`}
+      className={`glass col-span-2 flex w-full flex-col items-center justify-between gap-4 rounded-lg bg-linear-to-br ${getWeatherGradient(weather.Condition)} p-4 text-white shadow-lg sm:col-span-4 sm:gap-4 sm:p-6 md:col-span-5 lg:col-span-3`}
     >
       {/* Location */}
       <div className="w-full text-center">
