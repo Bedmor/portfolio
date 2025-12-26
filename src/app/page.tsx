@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <main className="relative flex max-h-screen w-screen flex-col">
       <Image
-        src={useIsMobile() ? "/bg-mobile.png" : "/bg.jpg"} //if mobile set a different image
+        src="/bg.jpg" //if mobile set a different image
         alt="Background"
         fill
         className="fixed -z-10 object-cover"
