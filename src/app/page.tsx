@@ -6,12 +6,11 @@ import Image from "next/image";
 import ActivityFeed from "./components/activity";
 import Contact from "./components/contact";
 import ViewCounter from "./components/view-counter";
-import { useIsMobile } from "~/hooks/use-media-query";
 export default function HomePage() {
   return (
     <main className="relative flex max-h-screen w-screen flex-col">
       <Image
-        src="/bg.jpg" //if mobile set a different image
+        src="/bg.png" //if mobile set a different image
         alt="Background"
         fill
         className="fixed -z-10 object-cover"
