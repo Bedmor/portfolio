@@ -82,14 +82,14 @@ export default function Projects() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-3xl font-bold text-black transition-transform hover:scale-110 hover:bg-gray-100 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
+          className="absolute top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-3xl font-bold text-black transition-transform hover:scale-110 hover:bg-gray-100 hover:text-black sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
           aria-label="Close"
         >
           &larr;
         </button>
         <div className="w-full bg-gray-100 p-4 pt-16 sm:p-6 sm:pt-20 md:p-8 md:pt-24">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:mb-6 sm:text-3xl md:text-4xl">
+            <h2 className="mb-4 text-center text-2xl font-bold text-black sm:mb-6 sm:text-3xl md:text-4xl">
               My GitHub Projects
             </h2>
 
@@ -152,7 +152,7 @@ export default function Projects() {
                     >
                       <div className="mb-3 flex items-start justify-between">
                         <div className="flex-1">
-                          <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600">
+                          <h3 className="text-lg font-bold text-black group-hover:text-blue-600">
                             {repo.name}
                           </h3>
                           {isGitHubProduction && (
@@ -173,7 +173,7 @@ export default function Projects() {
                           )}
                         </div>
                         <svg
-                          className="h-5 w-5 shrink-0 text-gray-400 transition group-hover:text-blue-600"
+                          className="h-5 w-5 shrink-0 text-black transition group-hover:text-blue-600"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -182,11 +182,11 @@ export default function Projects() {
                         </svg>
                       </div>
 
-                      <p className="mb-4 line-clamp-2 text-sm text-gray-600">
+                      <p className="mb-4 line-clamp-2 text-sm text-black">
                         {repo.description || "No description available"}
                       </p>
 
-                      <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-4 text-sm text-black">
                         {repo.language && (
                           <span className="flex items-center gap-1">
                             <span className="h-3 w-3 rounded-full bg-purple-800"></span>
@@ -225,7 +225,7 @@ export default function Projects() {
             )}
 
             {!loading && !error && repos.length === 0 && (
-              <div className="glass rounded-lg bg-gray-50/10 p-8 text-center text-gray-600">
+              <div className="glass rounded-lg bg-gray-50/10 p-8 text-center text-black">
                 <p className="text-lg">No repositories found</p>
               </div>
             )}

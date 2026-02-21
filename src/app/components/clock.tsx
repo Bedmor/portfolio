@@ -20,7 +20,7 @@ export default function Clock() {
   }, []);
 
   return (
-    <div className="clock p-4 font-mono text-lg text-gray-200 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+    <div className="clock p-4 font-mono text-lg text-white sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
       <h1 className="">{time}</h1>
     </div>
   );

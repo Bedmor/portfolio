@@ -40,7 +40,7 @@ export default function HomePage() {
         </div>
       </div>
       <div className="footer glass-soft relative flex w-full items-center justify-center border-t border-white/20 py-6 shadow-lg">
-        <p className="text-center text-sm text-gray-300 sm:text-base">
+        <p className="text-center text-sm text-white sm:text-base">
           Made with <span className="text-red-400">❤️</span> by{" "}
           <span className="font-semibold text-white">Bedmor</span>
         </p>

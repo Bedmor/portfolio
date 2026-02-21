@@ -73,7 +73,7 @@ export default function GitHubActivity({
   if (!data) {
     return (
       <div className="glass flex w-full flex-col gap-2 rounded-lg p-3 shadow sm:flex-row sm:items-center sm:gap-2 sm:p-4">
-        <p className="text-xs text-gray-600">No recent activity</p>
+        <p className="text-xs text-black">No recent activity</p>
       </div>
     );
   }
@@ -88,16 +88,14 @@ export default function GitHubActivity({
         className="self-start rounded-full sm:self-auto"
       />
       <h3 className="text-xs font-bold sm:text-sm">Latest Commit</h3>
-      <p className="min-w-0 truncate text-xs text-gray-600 sm:text-sm">
+      <p className="min-w-0 truncate text-xs text-black sm:text-sm">
         {data.commitMessage}
       </p>
-      <p className="text-xs text-gray-400">{data.repoName}</p>
-      <p className="hidden shrink-0 text-xs text-gray-400 sm:block">
+      <p className="text-xs text-black">{data.repoName}</p>
+      <p className="hidden shrink-0 text-xs text-black sm:block">
         {data.branch}
       </p>
-      <p className="text-xs whitespace-nowrap text-gray-400">
-        {data.createdAt}
-      </p>
+      <p className="text-xs whitespace-nowrap text-black">{data.createdAt}</p>
     </div>
   );
 }

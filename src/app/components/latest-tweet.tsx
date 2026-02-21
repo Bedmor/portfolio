@@ -42,7 +42,7 @@ export default function LatestTweet() {
   if (error || !tweet) {
     return (
       <div className="glass flex w-full flex-row items-center gap-2 rounded-lg p-3 shadow sm:p-4">
-        <p className="text-xs text-gray-500 sm:text-sm">
+        <p className="text-xs text-black sm:text-sm">
           Unable to load latest tweet. Follow me{" "}
           <a
             href="https://twitter.com/acabesim"

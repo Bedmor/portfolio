@@ -73,7 +73,7 @@ export default function Blog() {
             setIsOpen(false);
             setSelectedPost(null);
           }}
-          className="fixed top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
+          className="fixed top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-black sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
           aria-label="Close"
         >
           &larr;
@@ -83,10 +83,10 @@ export default function Blog() {
           {!selectedPost ? (
             <>
               <div className="mb-6 text-center sm:mb-8">
-                <h1 className="mb-2 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-4xl md:text-5xl">
+                <h1 className="mb-2 text-2xl font-bold text-black sm:mb-4 sm:text-4xl md:text-5xl">
                   Blog Posts
                 </h1>
-                <p className="text-sm text-gray-600 sm:text-base">
+                <p className="text-sm text-black sm:text-base">
                   Thoughts, tutorials, and updates
                 </p>
               </div>
@@ -120,7 +120,7 @@ export default function Blog() {
                   ))}
                 </div>
               ) : posts.length === 0 ? (
-                <div className="text-center text-gray-600">
+                <div className="text-center text-black">
                   No blog posts available yet. Check back soon!
                 </div>
               ) : (
@@ -143,15 +143,15 @@ export default function Blog() {
                         </div>
                       )}
                       <div className="p-6">
-                        <h2 className="mb-2 text-xl font-bold text-gray-900 group-hover:text-blue-600">
+                        <h2 className="mb-2 text-xl font-bold text-black group-hover:text-blue-600">
                           {post.title}
                         </h2>
                         {post.excerpt && (
-                          <p className="mb-4 line-clamp-3 text-gray-600">
+                          <p className="mb-4 line-clamp-3 text-black">
                             {post.excerpt}
                           </p>
                         )}
-                        <time className="text-sm text-gray-400">
+                        <time className="text-sm text-black">
                           {new Date(post.createdAt).toLocaleDateString(
                             "en-US",
                             {
@@ -187,10 +187,10 @@ export default function Blog() {
                     />
                   </div>
                 )}
-                <h1 className="mb-3 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl md:text-4xl">
+                <h1 className="mb-3 text-2xl font-bold text-black sm:mb-4 sm:text-3xl md:text-4xl">
                   {selectedPost.title}
                 </h1>
-                <time className="mb-4 block text-xs text-gray-400 sm:mb-6 sm:text-sm">
+                <time className="mb-4 block text-xs text-black sm:mb-6 sm:text-sm">
                   {new Date(selectedPost.createdAt).toLocaleDateString(
                     "en-US",
                     {
@@ -202,7 +202,7 @@ export default function Blog() {
                 </time>
                 <div className="prose prose-lg max-w-none">
                   {selectedPost.content.split("\n").map((paragraph, idx) => (
-                    <p key={idx} className="mb-4 text-gray-700">
+                    <p key={idx} className="mb-4 text-black">
                       {paragraph}
                     </p>
                   ))}

@@ -143,14 +143,14 @@ export default function About() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-12 left-4 z-50 mt-3 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
+          className="absolute top-12 left-4 z-50 mt-3 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-black sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
           aria-label="Close"
         >
           &larr;
         </button>
         <div className="mx-auto min-h-screen w-screen bg-gray-200 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
           <div className="mb-4 text-center sm:mb-6 md:mb-8">
-            <h1 className="mb-2 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
+            <h1 className="mb-2 text-2xl font-bold text-black sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
               About Me
             </h1>
           </div>
@@ -159,14 +159,14 @@ export default function About() {
             {/* Introduction */}
             <div className="glass rounded-xl bg-purple-500/10 p-4 shadow-lg sm:p-6 md:p-8">
               <div className="mb-3 flex items-center gap-2 sm:mb-4 sm:gap-3">
-                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
+                <h2 className="text-xl font-bold text-black sm:text-2xl md:text-3xl">
                   Hey, I&apos;m
                 </h2>
                 <h2 className="text-xl font-bold text-purple-600 sm:text-2xl md:text-3xl">
                   Besim!
                 </h2>
               </div>
-              <p className="text-sm leading-relaxed text-gray-700 sm:text-base md:text-lg">
+              <p className="text-sm leading-relaxed text-black sm:text-base md:text-lg">
                 I&apos;m a passionate{" "}
                 <span className="animate-pulse font-semibold text-purple-600">
                   Full-Stack Web Developer
@@ -181,7 +181,7 @@ export default function About() {
             <div className="glass rounded-xl p-4 shadow-lg sm:p-6 md:p-8">
               <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
                 <Zap className="h-8 w-8 text-yellow-500 sm:h-10 sm:w-10" />
-                <h2 className="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl">
+                <h2 className="text-xl font-bold text-black sm:text-2xl md:text-3xl">
                   Technical Skills
                 </h2>
               </div>
@@ -189,7 +189,7 @@ export default function About() {
               <div className="space-y-8">
                 {skills.map((category, categoryIndex) => (
                   <div key={categoryIndex} className="space-y-4">
-                    <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-800">
+                    <h3 className="flex items-center gap-2 text-lg font-semibold text-black">
                       <category.icon className="h-6 w-6 text-purple-600" />
                       {category.category}
                     </h3>
@@ -207,7 +207,7 @@ export default function About() {
                               className="object-contain drop-shadow-sm"
                             />
                           </div>
-                          <span className="text-center text-sm font-medium text-gray-700 group-hover:text-gray-900 sm:text-base">
+                          <span className="text-center text-sm font-medium text-black group-hover:text-black sm:text-base">
                             {skill.name}
                           </span>
                         </div>
@@ -222,7 +222,7 @@ export default function About() {
             <div className="glass rounded-xl bg-linear-to-br from-purple-50/10 to-pink-50/10 p-6 shadow-lg sm:p-8">
               <div className="mb-6 flex items-center gap-3">
                 <Briefcase className="h-8 w-8 text-purple-600 sm:h-10 sm:w-10" />
-                <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+                <h2 className="text-2xl font-bold text-black sm:text-3xl">
                   What I Do
                 </h2>
               </div>
@@ -231,10 +231,10 @@ export default function About() {
                   <div className="mb-4 transition-transform group-hover:scale-110">
                     <Globe className="h-10 w-10 text-blue-500" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-gray-900">
+                  <h3 className="mb-2 text-lg font-bold text-black">
                     Web Applications
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray-600">
+                  <p className="text-sm leading-relaxed text-black">
                     Building responsive, performant web apps with modern
                     frameworks like Next.js and React.
                   </p>
@@ -243,10 +243,10 @@ export default function About() {
                   <div className="mb-4 transition-transform group-hover:scale-110">
                     <Palette className="h-10 w-10 text-pink-500" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-gray-900">
+                  <h3 className="mb-2 text-lg font-bold text-black">
                     UI/UX Design
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray-600">
+                  <p className="text-sm leading-relaxed text-black">
                     Creating intuitive, accessible interfaces with attention to
                     detail and user experience.
                   </p>
@@ -255,10 +255,10 @@ export default function About() {
                   <div className="mb-4 transition-transform group-hover:scale-110">
                     <Server className="h-10 w-10 text-green-500" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-gray-900">
+                  <h3 className="mb-2 text-lg font-bold text-black">
                     API Development
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray-600">
+                  <p className="text-sm leading-relaxed text-black">
                     Designing scalable RESTful APIs and backend systems using
                     Node.js and PostgreSQL.
                   </p>
@@ -270,11 +270,11 @@ export default function About() {
             <div className="glass rounded-xl bg-linear-to-br from-green-50/10 to-teal-50/10 p-6 shadow-lg sm:p-8">
               <div className="mb-6 flex items-center gap-3">
                 <FileDown className="h-8 w-8 text-green-600" />
-                <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+                <h2 className="text-2xl font-bold text-black sm:text-3xl">
                   Resume / CV
                 </h2>
               </div>
-              <p className="mb-6 text-gray-700">
+              <p className="mb-6 text-black">
                 Download my professional resume to learn more about my
                 experience, education, and skills.
               </p>

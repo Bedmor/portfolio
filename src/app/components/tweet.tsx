@@ -70,18 +70,18 @@ export default function Tweet({
             {tweet.author.name}
           </h3>
           <span
-            className={`shrink-0 text-gray-800 ${isQuoted ? "text-xs" : "text-xs"}`}
+            className={`shrink-0 text-black ${isQuoted ? "text-xs" : "text-xs"}`}
           >
             @{tweet.author.username}
           </span>
           <span
-            className={`shrink-0 text-gray-800 ${isQuoted ? "text-xs" : "text-xs"} ${isQuoted ? "" : "hidden sm:inline"}`}
+            className={`shrink-0 text-black ${isQuoted ? "text-xs" : "text-xs"} ${isQuoted ? "" : "hidden sm:inline"}`}
           >
             · {formattedDate}
           </span>
         </div>
         <p
-          className={`text-gray-900 ${isQuoted ? "line-clamp-3 text-xs" : "line-clamp-3 text-xs sm:text-sm"}`}
+          className={`text-black ${isQuoted ? "line-clamp-3 text-xs" : "line-clamp-3 text-xs sm:text-sm"}`}
         >
           {cleanText}
         </p>
@@ -121,7 +121,7 @@ export default function Tweet({
 
         {/* Metrics */}
         {showMetrics && tweet.public_metrics && (
-          <div className="mt-2 flex gap-3 text-xs text-gray-500 sm:gap-4">
+          <div className="mt-2 flex gap-3 text-xs text-black sm:gap-4">
             <span className="flex items-center gap-1">
               <MessageCircle className="h-3 w-3" />
               {tweet.public_metrics.reply_count}

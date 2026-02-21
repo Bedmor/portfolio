@@ -45,7 +45,7 @@ export default function Contact() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-12 left-4 z-50 mt-3 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-gray-900 sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
+          className="absolute top-12 left-4 z-50 mt-3 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-black sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
           aria-label="Close"
         >
           &larr;

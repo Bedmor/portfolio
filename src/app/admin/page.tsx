@@ -157,7 +157,7 @@ export default function AdminPage() {
     <div className="min-h-screen p-4 sm:p-8">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex items-center justify-between">
-          <h1 className="text-3xl font-bold text-gray-900">Blog Admin</h1>
+          <h1 className="text-3xl font-bold text-black">Blog Admin</h1>
           <div className="flex flex-row gap-2">
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
@@ -173,12 +173,12 @@ export default function AdminPage() {
 
         {/* Blog Post Form */}
         <div className="glass mb-8 rounded-lg p-6 shadow-md">
-          <h2 className="mb-4 text-xl font-semibold text-gray-900">
+          <h2 className="mb-4 text-xl font-semibold text-black">
             {editingPost ? "Edit Post" : "Create New Post"}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Title *
               </label>
               <input
@@ -192,7 +192,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Slug *
               </label>
               <input
@@ -208,7 +208,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Excerpt
               </label>
               <textarea
@@ -223,7 +223,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Content *
               </label>
               <textarea
@@ -239,7 +239,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium text-gray-700">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Cover Image URL
               </label>
               <input
@@ -265,7 +265,7 @@ export default function AdminPage() {
               />
               <label
                 htmlFor="published"
-                className="ml-2 text-sm font-medium text-gray-700"
+                className="ml-2 text-sm font-medium text-black"
               >
                 Publish immediately
               </label>
@@ -298,12 +298,12 @@ export default function AdminPage() {
 
         {/* Posts List */}
         <div className="glass rounded-lg p-6 shadow-md">
-          <h2 className="mb-4 text-xl font-semibold text-gray-900">
+          <h2 className="mb-4 text-xl font-semibold text-black">
             All Posts ({posts.length})
           </h2>
           <div className="space-y-4">
             {posts.length === 0 ? (
-              <p className="text-gray-500">
+              <p className="text-black">
                 No blog posts yet. Create your first post above!
               </p>
             ) : (
@@ -314,7 +314,7 @@ export default function AdminPage() {
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <h3 className="text-lg font-semibold text-gray-900">
+                      <h3 className="text-lg font-semibold text-black">
                         {post.title}
                       </h3>
                       <span
@@ -327,13 +327,11 @@ export default function AdminPage() {
                         {post.published ? "Published" : "Draft"}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600">Slug: {post.slug}</p>
+                    <p className="text-sm text-black">Slug: {post.slug}</p>
                     {post.excerpt && (
-                      <p className="mt-1 text-sm text-gray-500">
-                        {post.excerpt}
-                      </p>
+                      <p className="mt-1 text-sm text-black">{post.excerpt}</p>
                     )}
-                    <p className="mt-2 text-xs text-gray-400">
+                    <p className="mt-2 text-xs text-black">
                       Created:{" "}
                       {new Date(post.createdAt).toLocaleDateString("en-US", {
                         year: "numeric",
