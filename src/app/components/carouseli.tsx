@@ -7,7 +7,8 @@ import {
 import { useState } from "react";
 import LatestTweet from "./latest-tweet";
 import GitHubActivity, { type GitHubActivityData } from "./github-activity";
-import { WeatherForecastDisplay, type WeatherData } from "./weather-forecast";
+import { WeatherForecastDisplay } from "./weather-forecast";
+import { type WeatherData } from "../actions/weather";
 import Spotify, { type SpotifyData } from "./spotify";
 
 export default function Carouseli({

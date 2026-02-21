@@ -1,6 +1,6 @@
 import Carouseli from "./carouseli";
 import { fetchGitHubActivity } from "./github-activity";
-import { fetchWeatherData } from "./weather-forecast";
+import { fetchWeatherData } from "../actions/weather";
 import { fetchSpotifyData } from "./spotify";
 
 export default async function ActivityFeed() {
