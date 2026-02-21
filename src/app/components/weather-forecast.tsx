@@ -60,7 +60,7 @@ export function WeatherForecastDisplay({
               console.error("Error fetching weather for location:", error);
             }
           };
-          fetchWeather();
+          void fetchWeather();
         },
         (error) => {
           console.error("Geolocation error:", error);
