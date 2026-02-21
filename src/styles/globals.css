@@ -234,13 +234,8 @@ textarea:focus-visible {
 }
 
 /* Improve typography and spacing inside glass cards for readability */
-.glass h1,
-.glass h2,
-.glass h3 {
-  color: var(--color-gray-900, #1f2937);
-}
+
 .glass p {
-  color: var(--color-gray-700, #374151);
   line-height: 1.5;
 }
 
