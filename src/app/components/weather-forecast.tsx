@@ -50,14 +50,17 @@ export function WeatherForecastDisplay({
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          try {
-            const { latitude, longitude } = position.coords;
-            const newData = await fetchWeatherData(latitude, longitude);
-            setData(newData);
-          } catch (error) {
-            console.error("Error fetching weather for location:", error);
-          }
+        (position) => {
+          const fetchWeather = async () => {
+            try {
+              const { latitude, longitude } = position.coords;
+              const newData = await fetchWeatherData(latitude, longitude);
+              setData(newData);
+            } catch (error) {
+              console.error("Error fetching weather for location:", error);
+            }
+          };
+          fetchWeather();
         },
         (error) => {
           console.error("Geolocation error:", error);
