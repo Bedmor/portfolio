@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <main className="relative flex max-h-screen w-screen flex-col">
       <Image
-        src="/bg.png" //if mobile set a different image
+        src="/bg.png"
         alt="Background"
         fill
         className="fixed -z-10 object-cover"
