@@ -143,39 +143,39 @@ export default function About() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="liquid-glass-button absolute top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-2xl font-bold text-white sm:top-6 sm:left-6 sm:text-2xl md:h-14 md:w-14"
+          className="glass-matte-button absolute top-12 left-4 z-50 h-10 w-10 text-xl sm:top-6 sm:left-6 md:h-12 md:w-12"
           aria-label="Close"
         >
           &larr;
         </button>
-        <div className="mx-auto min-h-screen w-screen bg-slate-950/80 backdrop-blur-3xl p-4 pt-20 text-white sm:p-6 sm:pt-24 md:p-8 md:pt-28 lg:p-12">
+        <div className="mx-auto min-h-screen w-screen bg-slate-950/85 backdrop-blur-2xl p-4 pt-20 text-white sm:p-6 sm:pt-24 md:p-8 md:pt-28 lg:p-12">
           <div className="mb-6 text-center sm:mb-8 md:mb-10">
-            <h1 className="mb-2 text-3xl font-extrabold text-white sm:text-4xl md:text-5xl tracking-tight drop-shadow-lg">
+            <h1 className="mb-2 text-3xl font-bold text-white sm:text-4xl md:text-5xl tracking-tight">
               About Me
             </h1>
           </div>
 
           <div className="mx-auto max-w-5xl space-y-6 sm:space-y-8 md:space-y-10">
             {/* Introduction */}
-            <div className="liquid-glass rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl">
+            <div className="glass-matte-card p-6 sm:p-8 md:p-10">
               <div className="mb-4 flex items-center gap-3 sm:gap-4">
-                <h2 className="text-2xl font-extrabold text-white sm:text-3xl md:text-4xl">
+                <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
                   Hey, I&apos;m
                 </h2>
-                <h2 className="text-2xl font-extrabold text-purple-400 sm:text-3xl md:text-4xl">
+                <h2 className="text-2xl font-bold text-purple-400 sm:text-3xl md:text-4xl">
                   Besim!
                 </h2>
               </div>
-              <p className="text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
+              <p className="text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
                 I&apos;m a passionate full-stack developer dedicated to building sleek, responsive, and high-performance digital experiences.
               </p>
             </div>
 
             {/* Technical Skills */}
-            <div className="liquid-glass rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl">
+            <div className="glass-matte-card p-6 sm:p-8 md:p-10">
               <div className="mb-6 flex items-center gap-3">
-                <Zap className="h-8 w-8 text-amber-400 sm:h-10 sm:w-10" />
-                <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+                <Zap className="h-7 w-7 text-amber-400 sm:h-9 sm:w-9" />
+                <h2 className="text-2xl font-bold text-white sm:text-3xl">
                   Technical Skills
                 </h2>
               </div>
@@ -183,25 +183,25 @@ export default function About() {
               <div className="space-y-8">
                 {skills.map((category, categoryIndex) => (
                   <div key={categoryIndex} className="space-y-4">
-                    <h3 className="flex items-center gap-2.5 text-lg font-bold text-white/95">
-                      <category.icon className="h-6 w-6 text-purple-400" />
+                    <h3 className="flex items-center gap-2.5 text-base font-semibold text-white/90">
+                      <category.icon className="h-5 w-5 text-purple-400" />
                       {category.category}
                     </h3>
                     <div className="flex flex-wrap gap-3.5">
                       {category.items.map((skill, skillIndex) => (
                         <div
                           key={skillIndex}
-                          className="group liquid-glass flex grow basis-[140px] flex-col items-center justify-center rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1"
+                          className="group glass-matte-card flex grow basis-[140px] flex-col items-center justify-center p-4"
                         >
-                          <div className="relative mb-3 h-10 w-10 transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12">
+                          <div className="relative mb-3 h-9 w-9 transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11">
                             <Image
                               src={skill.icon}
                               alt={skill.name}
                               fill
-                              className="object-contain drop-shadow-md"
+                              className="object-contain"
                             />
                           </div>
-                          <span className="text-center text-sm font-semibold text-white/90 sm:text-base">
+                          <span className="text-center text-sm font-medium text-white/85">
                             {skill.name}
                           </span>
                         </div>
@@ -213,46 +213,46 @@ export default function About() {
             </div>
 
             {/* What I Do */}
-            <div className="liquid-glass rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl">
+            <div className="glass-matte-card p-6 sm:p-8 md:p-10">
               <div className="mb-6 flex items-center gap-3">
-                <Briefcase className="h-8 w-8 text-purple-400 sm:h-10 sm:w-10" />
+                <Briefcase className="h-7 w-7 text-purple-400 sm:h-9 sm:w-9" />
                 <h2 className="text-2xl font-bold text-white sm:text-3xl">
                   What I Do
                 </h2>
               </div>
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="group liquid-glass rounded-2xl p-6 shadow-xl transition-all hover:-translate-y-1">
-                  <div className="mb-4 transition-transform group-hover:scale-110">
-                    <Globe className="h-10 w-10 text-blue-400" />
+                <div className="group glass-matte-card p-6">
+                  <div className="mb-4 transition-transform group-hover:scale-105">
+                    <Globe className="h-8 w-8 text-blue-400" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-white">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     Web Applications
                   </h3>
-                  <p className="text-sm leading-relaxed text-white/80">
+                  <p className="text-sm leading-relaxed text-white/75">
                     Building responsive, performant web apps with modern
                     frameworks like Next.js and React.
                   </p>
                 </div>
-                <div className="group liquid-glass rounded-2xl p-6 shadow-xl transition-all hover:-translate-y-1">
-                  <div className="mb-4 transition-transform group-hover:scale-110">
-                    <Palette className="h-10 w-10 text-pink-400" />
+                <div className="group glass-matte-card p-6">
+                  <div className="mb-4 transition-transform group-hover:scale-105">
+                    <Palette className="h-8 w-8 text-pink-400" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-white">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     UI/UX Design
                   </h3>
-                  <p className="text-sm leading-relaxed text-white/80">
+                  <p className="text-sm leading-relaxed text-white/75">
                     Creating intuitive, accessible interfaces with attention to
                     detail and user experience.
                   </p>
                 </div>
-                <div className="group liquid-glass rounded-2xl p-6 shadow-xl transition-all hover:-translate-y-1">
-                  <div className="mb-4 transition-transform group-hover:scale-110">
-                    <Server className="h-10 w-10 text-emerald-400" />
+                <div className="group glass-matte-card p-6">
+                  <div className="mb-4 transition-transform group-hover:scale-105">
+                    <Server className="h-8 w-8 text-emerald-400" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold text-white">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     API Development
                   </h3>
-                  <p className="text-sm leading-relaxed text-white/80">
+                  <p className="text-sm leading-relaxed text-white/75">
                     Designing scalable RESTful APIs and backend systems using
                     Node.js and PostgreSQL.
                   </p>
@@ -261,30 +261,30 @@ export default function About() {
             </div>
 
             {/* Resume Download */}
-            <div className="liquid-glass rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl">
+            <div className="glass-matte-card p-6 sm:p-8 md:p-10">
               <div className="mb-4 flex items-center gap-3">
-                <FileDown className="h-8 w-8 text-emerald-400" />
+                <FileDown className="h-7 w-7 text-emerald-400" />
                 <h2 className="text-2xl font-bold text-white sm:text-3xl">
                   Resume / CV
                 </h2>
               </div>
-              <p className="mb-6 text-white/85">
+              <p className="mb-6 text-white/80 text-sm sm:text-base">
                 Download my professional resume to learn more about my
                 experience, education, and skills.
               </p>
               <button
                 onClick={handleDownload}
                 disabled={downloading}
-                className="liquid-glass-button px-6 py-3 rounded-xl sm:w-auto"
+                className="glass-matte-button px-6 py-2.5 text-sm sm:w-auto"
               >
                 {downloading ? (
                   <>
-                    <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent mr-2"></div>
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent mr-2"></div>
                     Downloading...
                   </>
                 ) : (
                   <>
-                    <Download className="h-5 w-5 mr-2" />
+                    <Download className="h-4 w-4 mr-2" />
                     Download Resume (PDF)
                   </>
                 )}
@@ -296,3 +296,4 @@ export default function About() {
     </MorphingPopover>
   );
 }
+

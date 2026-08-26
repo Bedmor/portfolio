@@ -73,20 +73,20 @@ export default function Blog() {
             setIsOpen(false);
             setSelectedPost(null);
           }}
-          className="liquid-glass-button fixed top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-2xl font-bold text-white sm:top-6 sm:left-6 sm:text-2xl md:h-14 md:w-14"
+          className="glass-matte-button fixed top-12 left-4 z-50 h-10 w-10 text-xl sm:top-6 sm:left-6 md:h-12 md:w-12"
           aria-label="Close"
         >
           &larr;
         </button>
 
-        <div className="mx-auto min-h-screen w-full bg-slate-950/80 backdrop-blur-3xl p-4 pt-20 text-white sm:p-6 sm:pt-24 md:p-8 md:pt-28 lg:p-12">
+        <div className="mx-auto min-h-screen w-full bg-slate-950/85 backdrop-blur-2xl p-4 pt-20 text-white sm:p-6 sm:pt-24 md:p-8 md:pt-28 lg:p-12">
           {!selectedPost ? (
             <>
               <div className="mb-6 text-center sm:mb-8">
-                <h1 className="mb-2 text-3xl font-extrabold text-white sm:text-4xl md:text-5xl tracking-tight drop-shadow-lg">
+                <h1 className="mb-2 text-3xl font-bold text-white sm:text-4xl md:text-5xl tracking-tight">
                   Blog Posts
                 </h1>
-                <p className="text-sm text-white/80 sm:text-base">
+                <p className="text-sm text-white/75 sm:text-base">
                   Thoughts, tutorials, and updates
                 </p>
               </div>
@@ -96,18 +96,18 @@ export default function Blog() {
                   {[1, 2, 3, 4, 5, 6].map((i) => (
                     <div
                       key={i}
-                      className="liquid-glass overflow-hidden rounded-2xl p-6 shadow-xl"
+                      className="glass-matte-card overflow-hidden p-6"
                     >
                       <div className="h-48 w-full animate-pulse rounded-xl bg-white/10" />
                       <div className="mt-4 space-y-2">
-                        <div className="h-6 w-3/4 animate-pulse rounded bg-white/20" />
+                        <div className="h-6 w-3/4 animate-pulse rounded bg-white/15" />
                         <div className="h-4 w-full animate-pulse rounded bg-white/10" />
                       </div>
                     </div>
                   ))}
                 </div>
               ) : posts.length === 0 ? (
-                <div className="liquid-glass mx-auto max-w-md rounded-2xl p-8 text-center text-white/80">
+                <div className="glass-matte-card mx-auto max-w-md p-8 text-center text-white/75">
                   No blog posts available yet. Check back soon!
                 </div>
               ) : (
@@ -116,7 +116,7 @@ export default function Blog() {
                     <article
                       key={post.id}
                       onClick={() => handlePostClick(post)}
-                      className="group liquid-glass cursor-pointer overflow-hidden rounded-2xl p-0 shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-white/50"
+                      className="group glass-matte-card cursor-pointer overflow-hidden p-0"
                     >
                       {post.coverImage && (
                         <div className="h-48 w-full overflow-hidden bg-slate-900/50">
@@ -125,7 +125,7 @@ export default function Blog() {
                             alt={post.title}
                             width={400}
                             height={192}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         </div>
                       )}
@@ -134,11 +134,11 @@ export default function Blog() {
                           {post.title}
                         </h2>
                         {post.excerpt && (
-                          <p className="mb-4 line-clamp-3 text-sm text-white/80">
+                          <p className="mb-4 line-clamp-3 text-sm text-white/75">
                             {post.excerpt}
                           </p>
                         )}
-                        <time className="text-xs text-white/60 font-medium">
+                        <time className="text-xs text-white/55 font-medium">
                           {new Date(post.createdAt).toLocaleDateString(
                             "en-US",
                             {
@@ -158,13 +158,13 @@ export default function Blog() {
             <div className="mx-auto max-w-4xl">
               <button
                 onClick={handleBackToPosts}
-                className="liquid-glass-button mb-6 px-4 py-2 text-sm font-semibold text-white/90"
+                className="glass-matte-button mb-6 px-4 py-2 text-xs sm:text-sm"
               >
                 ← Back to all posts
               </button>
-              <article className="liquid-glass rounded-2xl p-6 shadow-2xl sm:p-8 md:p-10">
+              <article className="glass-matte-card p-6 sm:p-8 md:p-10">
                 {selectedPost.coverImage && (
-                  <div className="-mx-6 -mt-6 mb-6 h-56 w-[calc(100%+3rem)] overflow-hidden rounded-t-2xl sm:-mx-8 sm:-mt-8 sm:mb-8 sm:h-72 sm:w-[calc(100%+4rem)] md:-mx-10 md:-mt-10 md:w-[calc(100%+5rem)]">
+                  <div className="-mx-6 -mt-6 mb-6 h-56 w-[calc(100%+3rem)] overflow-hidden rounded-t-xl sm:-mx-8 sm:-mt-8 sm:mb-8 sm:h-72 sm:w-[calc(100%+4rem)] md:-mx-10 md:-mt-10 md:w-[calc(100%+5rem)]">
                     <Image
                       src={selectedPost.coverImage}
                       alt={selectedPost.title}
@@ -174,10 +174,10 @@ export default function Blog() {
                     />
                   </div>
                 )}
-                <h1 className="mb-3 text-2xl font-extrabold text-white sm:mb-4 sm:text-3xl md:text-4xl tracking-tight">
+                <h1 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:text-4xl tracking-tight">
                   {selectedPost.title}
                 </h1>
-                <time className="mb-6 block text-xs font-medium text-pink-300 sm:text-sm">
+                <time className="mb-6 block text-xs font-medium text-pink-300/80 sm:text-sm">
                   {new Date(selectedPost.createdAt).toLocaleDateString(
                     "en-US",
                     {
@@ -187,7 +187,7 @@ export default function Blog() {
                     },
                   )}
                 </time>
-                <div className="prose prose-invert prose-lg max-w-none text-white/90">
+                <div className="prose prose-invert prose-lg max-w-none text-white/85">
                   {selectedPost.content.split("\n").map((paragraph, idx) => (
                     <p key={idx} className="mb-4 leading-relaxed">
                       {paragraph}
@@ -198,6 +198,7 @@ export default function Blog() {
             </div>
           )}
         </div>
+
       </MorphingPopoverContent>
     </MorphingPopover>
 
