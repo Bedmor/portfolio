@@ -58,7 +58,7 @@ export default function Blog() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-pink-400/30 bg-pink-500/20 text-3xl shadow-xl transition hover:scale-110 hover:border-pink-400/50 hover:bg-pink-500/30 hover:shadow-2xl sm:h-24 sm:w-24">
+          <div className="liquid-glass flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl border border-pink-400/40 shadow-2xl transition hover:scale-110 sm:h-24 sm:w-24">
             <NotebookPen className="h-10 w-10 text-white drop-shadow-lg sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
@@ -73,54 +73,41 @@ export default function Blog() {
             setIsOpen(false);
             setSelectedPost(null);
           }}
-          className="fixed top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-3xl text-black transition-transform hover:scale-110 hover:text-black sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
+          className="liquid-glass-button fixed top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-2xl font-bold text-white sm:top-6 sm:left-6 sm:text-2xl md:h-14 md:w-14"
           aria-label="Close"
         >
           &larr;
         </button>
 
-        <div className="mx-auto min-h-screen w-full bg-gray-100 p-4 pt-14 sm:p-6 sm:pt-16 md:p-8 md:pt-20 lg:p-12">
+        <div className="mx-auto min-h-screen w-full bg-slate-950/80 backdrop-blur-3xl p-4 pt-20 text-white sm:p-6 sm:pt-24 md:p-8 md:pt-28 lg:p-12">
           {!selectedPost ? (
             <>
               <div className="mb-6 text-center sm:mb-8">
-                <h1 className="mb-2 text-2xl font-bold text-black sm:mb-4 sm:text-4xl md:text-5xl">
+                <h1 className="mb-2 text-3xl font-extrabold text-white sm:text-4xl md:text-5xl tracking-tight drop-shadow-lg">
                   Blog Posts
                 </h1>
-                <p className="text-sm text-black sm:text-base">
+                <p className="text-sm text-white/80 sm:text-base">
                   Thoughts, tutorials, and updates
                 </p>
               </div>
 
               {loading ? (
-                <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+                <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {[1, 2, 3, 4, 5, 6].map((i) => (
                     <div
                       key={i}
-                      className="glass overflow-hidden rounded-lg shadow-md"
+                      className="liquid-glass overflow-hidden rounded-2xl p-6 shadow-xl"
                     >
-                      {/* Image skeleton */}
-                      <div className="h-48 w-full animate-pulse bg-gray-200" />
-
-                      {/* Content skeleton */}
-                      <div className="space-y-3 p-6">
-                        {/* Title skeleton */}
-                        <div className="h-6 w-3/4 animate-pulse rounded bg-gray-200" />
-
-                        {/* Excerpt skeleton */}
-                        <div className="space-y-2">
-                          <div className="h-4 w-full animate-pulse rounded bg-gray-200" />
-                          <div className="h-4 w-5/6 animate-pulse rounded bg-gray-200" />
-                          <div className="h-4 w-4/6 animate-pulse rounded bg-gray-200" />
-                        </div>
-
-                        {/* Date skeleton */}
-                        <div className="h-3 w-1/3 animate-pulse rounded bg-gray-200" />
+                      <div className="h-48 w-full animate-pulse rounded-xl bg-white/10" />
+                      <div className="mt-4 space-y-2">
+                        <div className="h-6 w-3/4 animate-pulse rounded bg-white/20" />
+                        <div className="h-4 w-full animate-pulse rounded bg-white/10" />
                       </div>
                     </div>
                   ))}
                 </div>
               ) : posts.length === 0 ? (
-                <div className="text-center text-black">
+                <div className="liquid-glass mx-auto max-w-md rounded-2xl p-8 text-center text-white/80">
                   No blog posts available yet. Check back soon!
                 </div>
               ) : (
@@ -129,29 +116,29 @@ export default function Blog() {
                     <article
                       key={post.id}
                       onClick={() => handlePostClick(post)}
-                      className="group glass cursor-pointer overflow-hidden rounded-lg shadow-md transition-all hover:scale-105 hover:shadow-xl"
+                      className="group liquid-glass cursor-pointer overflow-hidden rounded-2xl p-0 shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-white/50"
                     >
                       {post.coverImage && (
-                        <div className="h-48 w-full overflow-hidden bg-gray-200">
+                        <div className="h-48 w-full overflow-hidden bg-slate-900/50">
                           <Image
                             src={post.coverImage}
                             alt={post.title}
                             width={400}
                             height={192}
-                            className="h-full w-full object-cover transition-transform group-hover:scale-110"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
                         </div>
                       )}
                       <div className="p-6">
-                        <h2 className="mb-2 text-xl font-bold text-black group-hover:text-blue-600">
+                        <h2 className="mb-2 text-xl font-bold text-white transition group-hover:text-pink-300">
                           {post.title}
                         </h2>
                         {post.excerpt && (
-                          <p className="mb-4 line-clamp-3 text-black">
+                          <p className="mb-4 line-clamp-3 text-sm text-white/80">
                             {post.excerpt}
                           </p>
                         )}
-                        <time className="text-sm text-black">
+                        <time className="text-xs text-white/60 font-medium">
                           {new Date(post.createdAt).toLocaleDateString(
                             "en-US",
                             {
@@ -171,26 +158,26 @@ export default function Blog() {
             <div className="mx-auto max-w-4xl">
               <button
                 onClick={handleBackToPosts}
-                className="mb-4 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 sm:mb-6 sm:text-base"
+                className="liquid-glass-button mb-6 px-4 py-2 text-sm font-semibold text-white/90"
               >
                 ← Back to all posts
               </button>
-              <article className="glass rounded-lg p-4 shadow-md sm:p-6 md:p-8">
+              <article className="liquid-glass rounded-2xl p-6 shadow-2xl sm:p-8 md:p-10">
                 {selectedPost.coverImage && (
-                  <div className="-mx-4 -mt-4 mb-4 h-48 w-[calc(100%+2rem)] overflow-hidden bg-gray-200 sm:-mx-6 sm:-mt-6 sm:mb-6 sm:h-64 sm:w-[calc(100%+3rem)] md:-mx-8 md:-mt-8 md:w-[calc(100%+4rem)]">
+                  <div className="-mx-6 -mt-6 mb-6 h-56 w-[calc(100%+3rem)] overflow-hidden rounded-t-2xl sm:-mx-8 sm:-mt-8 sm:mb-8 sm:h-72 sm:w-[calc(100%+4rem)] md:-mx-10 md:-mt-10 md:w-[calc(100%+5rem)]">
                     <Image
                       src={selectedPost.coverImage}
                       alt={selectedPost.title}
                       width={800}
-                      height={256}
+                      height={288}
                       className="h-full w-full object-cover"
                     />
                   </div>
                 )}
-                <h1 className="mb-3 text-2xl font-bold text-black sm:mb-4 sm:text-3xl md:text-4xl">
+                <h1 className="mb-3 text-2xl font-extrabold text-white sm:mb-4 sm:text-3xl md:text-4xl tracking-tight">
                   {selectedPost.title}
                 </h1>
-                <time className="mb-4 block text-xs text-black sm:mb-6 sm:text-sm">
+                <time className="mb-6 block text-xs font-medium text-pink-300 sm:text-sm">
                   {new Date(selectedPost.createdAt).toLocaleDateString(
                     "en-US",
                     {
@@ -200,9 +187,9 @@ export default function Blog() {
                     },
                   )}
                 </time>
-                <div className="prose prose-lg max-w-none">
+                <div className="prose prose-invert prose-lg max-w-none text-white/90">
                   {selectedPost.content.split("\n").map((paragraph, idx) => (
-                    <p key={idx} className="mb-4 text-black">
+                    <p key={idx} className="mb-4 leading-relaxed">
                       {paragraph}
                     </p>
                   ))}
@@ -213,5 +200,6 @@ export default function Blog() {
         </div>
       </MorphingPopoverContent>
     </MorphingPopover>
+
   );
 }

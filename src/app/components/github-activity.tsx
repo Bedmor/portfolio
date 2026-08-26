@@ -72,30 +72,32 @@ export default function GitHubActivity({
 }) {
   if (!data) {
     return (
-      <div className="glass flex w-full flex-col gap-2 rounded-lg p-3 shadow sm:flex-row sm:items-center sm:gap-2 sm:p-4">
-        <p className="text-xs text-black">No recent activity</p>
+      <div className="liquid-glass flex w-full flex-col items-center justify-center gap-2 rounded-2xl p-5 shadow-2xl">
+        <p className="text-sm font-medium text-white/70">No recent GitHub activity</p>
       </div>
     );
   }
 
   return (
-    <div className="glass flex w-full flex-col gap-2 rounded-lg p-3 shadow sm:items-center sm:gap-2 sm:p-4">
+    <div className="liquid-glass flex w-full flex-col gap-3 rounded-2xl p-4 shadow-2xl sm:flex-row sm:items-center sm:gap-4">
       <Image
         src={data.avatarUrl}
         alt="User Avatar"
         width={50}
         height={50}
-        className="self-start rounded-full sm:self-auto"
+        className="self-start rounded-full border border-white/30 shadow-md sm:self-auto"
       />
-      <h3 className="text-xs font-bold sm:text-sm">Latest Commit</h3>
-      <p className="min-w-0 truncate text-xs text-black sm:text-sm">
-        {data.commitMessage}
-      </p>
-      <p className="text-xs text-black">{data.repoName}</p>
-      <p className="hidden shrink-0 text-xs text-black sm:block">
-        {data.branch}
-      </p>
-      <p className="text-xs whitespace-nowrap text-black">{data.createdAt}</p>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold text-purple-300 uppercase tracking-wider">Latest Commit</span>
+          <span className="text-xs text-white/50">• {data.createdAt}</span>
+        </div>
+        <h3 className="truncate text-sm font-bold text-white mt-0.5">{data.commitMessage}</h3>
+        <div className="mt-1 flex items-center gap-2 text-xs text-white/70">
+          <span className="font-medium text-purple-200">{data.repoName}</span>
+          <span>({data.branch})</span>
+        </div>
+      </div>
     </div>
   );
 }

@@ -110,8 +110,8 @@ import Image from "next/image";
 export default function Spotify({ data }: { data: SpotifyData | null }) {
   if (!data?.is_playing) {
     return (
-      <div className="glass flex w-full flex-col items-center justify-center gap-2 rounded-lg p-4 shadow">
-        <div className="flex items-center gap-2">
+      <div className="liquid-glass flex w-full flex-col items-center justify-center gap-2 rounded-2xl p-5 shadow-2xl">
+        <div className="flex items-center gap-3">
           <svg
             className="h-8 w-8"
             fill="#1DB954"
@@ -121,8 +121,8 @@ export default function Spotify({ data }: { data: SpotifyData | null }) {
             <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
           </svg>
           <div>
-            <h3 className="text-sm font-bold text-black">Not playing</h3>
-            <p className="text-xs text-black">No active session</p>
+            <h3 className="text-sm font-bold text-white">Not playing</h3>
+            <p className="text-xs text-white/70">No active Spotify session</p>
           </div>
         </div>
       </div>
@@ -133,28 +133,28 @@ export default function Spotify({ data }: { data: SpotifyData | null }) {
   const albumArt = data.item.album.images[0]?.url;
 
   return (
-    <div className="glass flex h-full w-full flex-col items-center gap-3 rounded-lg p-3 shadow">
-      I am now listening to
-      <div className="flex flex-row items-center gap-3">
+    <div className="liquid-glass flex h-full w-full flex-col items-center gap-3 rounded-2xl p-4 shadow-2xl">
+      <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Listening to Spotify</span>
+      <div className="flex w-full flex-row items-center gap-3.5">
         {albumArt && (
           <Image
             src={albumArt}
             alt={`${data.item.album.name} cover`}
             width={64}
             height={64}
-            className="h-16 w-16 rounded-md"
+            className="h-14 w-14 rounded-xl shadow-lg border border-white/20"
             unoptimized
           />
         )}
         <div className="min-w-0 flex-1">
-          <h3 className="truncate text-sm font-bold text-black">
+          <h3 className="truncate text-sm font-bold text-white">
             {data.item.name}
           </h3>
-          <p className="truncate text-xs text-black">{artistNames}</p>
-          <p className="truncate text-xs text-black">{data.item.album.name}</p>
+          <p className="truncate text-xs font-medium text-white/80">{artistNames}</p>
+          <p className="truncate text-xs text-white/60">{data.item.album.name}</p>
         </div>
         <svg
-          className="h-6 w-6 shrink-0"
+          className="h-7 w-7 shrink-0 drop-shadow"
           fill="#1DB954"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -165,3 +165,4 @@ export default function Spotify({ data }: { data: SpotifyData | null }) {
     </div>
   );
 }
+

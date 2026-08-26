@@ -70,7 +70,7 @@ export default function Projects() {
     <MorphingPopover open={isOpen} onOpenChange={setIsOpen}>
       <div className="relative flex flex-col items-center justify-center">
         <MorphingPopoverTrigger>
-          <div className="flex h-16 w-16 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-white/20 shadow-xl transition hover:scale-110 hover:border-white/30 hover:bg-white/20 hover:shadow-2xl sm:h-24 sm:w-24">
+          <div className="liquid-glass flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl border border-white/35 shadow-2xl transition hover:scale-110 sm:h-24 sm:w-24">
             <TableProperties className="h-10 w-10 text-white drop-shadow-lg sm:h-14 sm:w-14" />
           </div>
         </MorphingPopoverTrigger>
@@ -82,14 +82,14 @@ export default function Projects() {
       <MorphingPopoverContent className="z-50 h-screen w-screen overflow-y-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-3xl font-bold text-black transition-transform hover:scale-110 hover:bg-gray-100 hover:text-black sm:top-4 sm:left-4 sm:text-2xl md:h-16 md:w-16"
+          className="liquid-glass-button absolute top-12 left-4 z-50 h-10 w-10 rounded-full p-2 text-2xl font-bold text-white sm:top-6 sm:left-6 sm:text-2xl md:h-14 md:w-14"
           aria-label="Close"
         >
           &larr;
         </button>
-        <div className="w-full bg-gray-100 p-4 pt-16 sm:p-6 sm:pt-20 md:p-8 md:pt-24">
+        <div className="min-h-screen w-full bg-slate-950/75 backdrop-blur-3xl p-4 pt-20 text-white sm:p-6 sm:pt-24 md:p-8 md:pt-28">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-4 text-center text-2xl font-bold text-black sm:mb-6 sm:text-3xl md:text-4xl">
+            <h2 className="mb-6 text-center text-2xl font-extrabold tracking-tight text-white sm:mb-8 sm:text-3xl md:text-4xl drop-shadow-lg">
               My GitHub Projects
             </h2>
 
@@ -98,25 +98,12 @@ export default function Projects() {
                 {[1, 2, 3, 4, 5, 6].map((i) => (
                   <div
                     key={i}
-                    className="glass overflow-hidden rounded-lg shadow-md"
+                    className="liquid-glass overflow-hidden rounded-2xl p-6 shadow-xl"
                   >
-                    {/* Image skeleton */}
-                    <div className="h-48 w-full animate-pulse bg-gray-200" />
-
-                    {/* Content skeleton */}
-                    <div className="space-y-3 p-6">
-                      {/* Title skeleton */}
-                      <div className="h-6 w-3/4 animate-pulse rounded bg-gray-200" />
-
-                      {/* Excerpt skeleton */}
-                      <div className="space-y-2">
-                        <div className="h-4 w-full animate-pulse rounded bg-gray-200" />
-                        <div className="h-4 w-5/6 animate-pulse rounded bg-gray-200" />
-                        <div className="h-4 w-4/6 animate-pulse rounded bg-gray-200" />
-                      </div>
-
-                      {/* Date skeleton */}
-                      <div className="h-3 w-1/3 animate-pulse rounded bg-gray-200" />
+                    <div className="h-6 w-3/4 animate-pulse rounded bg-white/20" />
+                    <div className="mt-4 space-y-2">
+                      <div className="h-4 w-full animate-pulse rounded bg-white/10" />
+                      <div className="h-4 w-5/6 animate-pulse rounded bg-white/10" />
                     </div>
                   </div>
                 ))}
@@ -124,14 +111,14 @@ export default function Projects() {
             )}
 
             {error && (
-              <div className="glass mx-auto max-w-md rounded-lg bg-red-50/10 p-4 text-center text-red-600">
-                <p className="font-semibold">Error loading repositories</p>
-                <p className="text-sm">{error}</p>
+              <div className="liquid-glass mx-auto max-w-md rounded-2xl bg-red-950/40 p-6 text-center text-red-200 border border-red-500/30">
+                <p className="font-semibold text-lg">Error loading repositories</p>
+                <p className="text-sm text-red-300/80 mt-1">{error}</p>
               </div>
             )}
 
             {!loading && !error && repos.length > 0 && (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {repos.map((repo, index) => {
                   const repoLink = getRepoLink(repo);
                   const isGitHubProduction =
@@ -144,7 +131,7 @@ export default function Projects() {
                       href={repoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group animate-in fade-in slide-in-from-bottom glass rounded-lg p-5 shadow-md transition duration-500 hover:shadow-xl"
+                      className="group liquid-glass rounded-2xl p-6 shadow-xl transition duration-300 hover:-translate-y-1 hover:border-white/50"
                       style={{
                         animationDelay: `${index * 50}ms`,
                         animationFillMode: "backwards",
@@ -152,11 +139,11 @@ export default function Projects() {
                     >
                       <div className="mb-3 flex items-start justify-between">
                         <div className="flex-1">
-                          <h3 className="text-lg font-bold text-black group-hover:text-blue-600">
+                          <h3 className="text-lg font-bold text-white transition group-hover:text-blue-300">
                             {repo.name}
                           </h3>
                           {isGitHubProduction && (
-                            <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
+                            <span className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 px-2.5 py-0.5 text-xs font-semibold text-emerald-300 backdrop-blur-md">
                               <svg
                                 className="h-3 w-3"
                                 fill="currentColor"
@@ -173,7 +160,7 @@ export default function Projects() {
                           )}
                         </div>
                         <svg
-                          className="h-5 w-5 shrink-0 text-black transition group-hover:text-blue-600"
+                          className="h-5 w-5 shrink-0 text-white/70 transition group-hover:text-blue-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -182,20 +169,20 @@ export default function Projects() {
                         </svg>
                       </div>
 
-                      <p className="mb-4 line-clamp-2 text-sm text-black">
+                      <p className="mb-4 line-clamp-2 text-sm text-white/80">
                         {repo.description || "No description available"}
                       </p>
 
-                      <div className="flex items-center gap-4 text-sm text-black">
+                      <div className="flex items-center gap-4 text-xs font-medium text-white/70">
                         {repo.language && (
-                          <span className="flex items-center gap-1">
-                            <span className="h-3 w-3 rounded-full bg-purple-800"></span>
+                          <span className="flex items-center gap-1.5">
+                            <span className="h-2.5 w-2.5 rounded-full bg-purple-400 shadow-sm"></span>
                             {repo.language}
                           </span>
                         )}
                         <span className="flex items-center gap-1">
                           <svg
-                            className="h-4 w-4"
+                            className="h-3.5 w-3.5 text-amber-300"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -205,7 +192,7 @@ export default function Projects() {
                         </span>
                         <span className="flex items-center gap-1">
                           <svg
-                            className="h-4 w-4"
+                            className="h-3.5 w-3.5 text-blue-300"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -225,7 +212,7 @@ export default function Projects() {
             )}
 
             {!loading && !error && repos.length === 0 && (
-              <div className="glass rounded-lg bg-gray-50/10 p-8 text-center text-black">
+              <div className="liquid-glass rounded-2xl p-8 text-center text-white/80">
                 <p className="text-lg">No repositories found</p>
               </div>
             )}
@@ -233,5 +220,6 @@ export default function Projects() {
         </div>
       </MorphingPopoverContent>
     </MorphingPopover>
+
   );
 }
